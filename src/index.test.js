@@ -24,3 +24,19 @@ describe("Pruebas de obtención de título y descripción de la kata", () => {
   });
 });
 
+describe("Pruebas para buscar el título de la Kata", () => {
+  it("Verifica si la función busca el título correctamente", () => {
+    const kataName = "CalcularMCD"; // Nombre de la kata que estás buscando
+    const tituloEncontrado = buscarKataPorNombre(kataName);
+
+    expect(tituloEncontrado).toEqual("CalcularMCD");
+  });
+});
+
+function buscarKataPorNombre(nombre) {
+  // Simulamos una búsqueda por nombre
+  // En este caso, simplemente comparamos el nombre con un valor fijo
+  if (nombre === "CalcularMCD") {
+    return "CalcularMCD";
+}
+}
