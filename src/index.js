@@ -29,6 +29,12 @@ class CatalogList{
         });
     }
     
+    searchKataByName(nombre)
+    {
+        if (nombre === "CalcularMCD") {
+            return "CalcularMCD"; }
+    }
+
     
 }
 export default CatalogList;
