@@ -58,8 +58,13 @@ class CatalogList{
       }
       searchKataByDescription(Descripcion) {
         const Desctn = this.catalogData.find(item => item.Description === Descripcion);
-        return Desctn;
-      }
+        if (Desctn){
+            return Desctn ;
+        }
+        else{
+            return "No se encontro Resultados";
+        }
+    }
   }
 export default CatalogList;
     

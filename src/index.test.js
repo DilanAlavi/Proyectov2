@@ -79,4 +79,13 @@ describe("Una Prueba para buscar una descripcion general de la Kata", () => {
     expect(descripcionEncontrado.Description).toEqual(descripcion);
   });
 });
+describe("Pruebas para buscar el título de la Kata (Kata no encontrada)", () => {
+  it("Verifica si la función retorna un mensaje cuando la kata no se encuentra", () => {
+    const catalogList = new CatalogList(catalogData);
+    const descripcion = " el ejericio de la Kata la suma de numeros primos."; // Nombre de la kata que estás buscando
+    const descripcionEncontrado = catalogList.searchKataByDescription(descripcion);
 
+    // Verifica que el resultado sea igual al mensaje de error
+    expect(descripcionEncontrado).toEqual("No se encontro Resultados");
+  });
+});
