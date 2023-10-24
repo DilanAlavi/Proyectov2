@@ -60,8 +60,13 @@ class CatalogList{
           const Categoria=catalog.Category.toLowerCase();
 
           return title.includes(searchQuery) || description.includes(searchQuery)||difficulty.includes(searchQuery)||Type.includes(searchQuery)||Categoria.includes(searchQuery);        });
-        return filteredCatalogs.length > 0 ? filteredCatalogs : "No se encontraron resultados";
-    }
+          if (filteredCatalogs.length === 0) {
+            throw new Error("No se encontraron resultados");
+          }
+
+          // Devuelve el resultado de la búsqueda
+          return filteredCatalogs;
+         }
   }
 export default CatalogList;
     

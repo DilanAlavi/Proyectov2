@@ -116,3 +116,10 @@ describe("Pruebas para buscar el título de la Kata (Kata no encontrada)", () =>
     });
   });
 
+  describe("searchGlobal", () => {
+    it("debería lanzar un mensaje de error si no se encuentran resultados", () => {
+      const catalogList = new CatalogList(catalogData);
+      const query = "CaracteristicaInexistente";
+      expect(() => catalogList.searchGlobal(query)).toThrow("No se encontraron resultados");
+    });
+  });
