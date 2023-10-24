@@ -31,7 +31,12 @@ class CatalogList{
     
     searchKataByName(name) {
         const ExampleKata = this.catalogData.find(item => item.Title === name);
-        return ExampleKata ;
+        if (ExampleKata){
+            return ExampleKata ;
+        }
+        else{
+            return "No se encontro Resultados";
+        }
       }
     
 }

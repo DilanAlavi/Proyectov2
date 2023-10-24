@@ -37,4 +37,13 @@ describe("Pruebas para buscar el título de la Kata", () => {
   });
 });
 
+describe("Pruebas para buscar el título de la Kata (Kata no encontrada)", () => {
+  it("Verifica si la función retorna un mensaje cuando la kata no se encuentra", () => {
+    const catalogList = new CatalogList(catalogData);
+    const kataName = "Ejercicio de Polinomios"; // Nombre de la kata que no se encuentra
+    const resultado = catalogList.searchKataByName(kataName);
 
+    // Verifica que el resultado sea igual al mensaje de error
+    expect(resultado).toEqual("No se encontro Resultados");
+  });
+});
