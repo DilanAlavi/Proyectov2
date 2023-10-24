@@ -96,4 +96,15 @@ describe("Pruebas para buscar el título de la Kata (Kata no encontrada)", () =>
   ];
       expect(resultado).toEqual(kataEsperada);
     });
+    describe("searchGlobal", () => {
+      it("debería encontrar catálogos con dificultad 'Facil'", () => {
+        const catalogList = new CatalogList(catalogData);
+        const query = "Facil";
+    
+        const resultado = catalogList.searchGlobal(query);
+    
+        // Comprueba que el resultado contenga catálogos con dificultad 'Facil'
+        expect(resultado).toHaveLength(1); // Solo hay un catalogo con dificultad Facil
+      });
+    });
 });

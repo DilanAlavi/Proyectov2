@@ -55,8 +55,9 @@ class CatalogList{
         const filteredCatalogs = this.catalogData.filter(catalog => {
           const title = catalog.Title.toLowerCase();
           const description = catalog.Description.toLowerCase();
+          const difficulty = catalog.Difficulty.toLowerCase();//Agregamos Dificultad
 
-          return title.includes(searchQuery) || description.includes(searchQuery);
+          return title.includes(searchQuery) || description.includes(searchQuery)||difficulty.includes(searchQuery);
         });
         return filteredCatalogs.length > 0 ? filteredCatalogs : "No se encontraron resultados";
     }
