@@ -89,10 +89,9 @@ describe("Pruebas para la base de datos de katas", () => {
 describe("Pruebas para la base de datos de katas", () => {
   it("Verifica si la base de datos devuelve resultados esperados al buscar 'Calcu'", () => {
     const catalogList = new CatalogList(catalogData);
-    const kataName = "Calcu"; // Nombre parcial de la kata que estás buscando
+    const kataName = "c"; // Nombre parcial de la kata que estás buscando
 
-    const resultadosEsperados = ["CalcularMCD"]; // Define aquí los resultados esperados
-
+    const resultadosEsperados = ["CalcularMCD","Encontrar Ciclos en un Grafo"]; // Define aquí los resultados esperados
     const resultados = catalogList.searchKataByName(kataName);
 
     // Verifica que resultados no sea null o undefined y que no sea igual a "No se encontraron resultados"
