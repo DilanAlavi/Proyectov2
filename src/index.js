@@ -57,8 +57,8 @@ class CatalogList{
         return filteredCatalogs.length > 0 ? filteredCatalogs :"No se encontraron resultados";
       }
       searchKataByDescription(nombre) {
-        if (nombre === "Kata para ordenar un arreglo de números en orden ascendente") {
-          return "Kata para ordenar un arreglo de números en orden ascendente";
+        if (nombre === "Kata para calcular el Máximo Común Divisor (MCD)") {
+            return "Kata para calcular el Máximo Común Divisor (MCD)";
       }
       }
     
