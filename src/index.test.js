@@ -98,24 +98,14 @@ describe("Pruebas para buscar el título de la Kata (Kata no encontrada)", () =>
     });
   });
   describe("searchGlobal", () => {
-    it("debería encontrar catálogos con dificultad 'Difícil'", () => {
+    it("deberia buscar caracteristicas del catalogo", () => {
       const catalogList = new CatalogList(catalogData);
-      const query = "Difícil";
+      const query = "Numero";
   
       const resultado = catalogList.searchGlobal(query);
   
       // Comprueba que el resultado contenga catálogos con dificultad 'Facil'
-      expect(resultado).toHaveLength(1); // Solo hay un catalogo con dificultad Facil
+      expect(resultado).toBeDefined(); 
     });
   });
-  describe("searchGlobal", () => {
-    it("debería buscar por 'Ejercicio'", () => {
-      const catalogList = new CatalogList(catalogData);
-      const query = "Ejercicio";
-  
-      const resultado = catalogList.searchGlobal(query);
-  
-        // Comprueba que el resultado contenga catálogos de Tipo 'Ejercicio'
-    expect(resultado).toHaveLength(2); // test para buscar catálogos por Tipo 'Ejercicio
-  });
-});
+

@@ -57,9 +57,9 @@ class CatalogList{
           const description = catalog.Description.toLowerCase();
           const difficulty = catalog.Difficulty.toLowerCase();//Agregamos Dificultad
           const Type= catalog.Type.toLowerCase();//Agregamos el Tipo de 
+          const Categoria=catalog.Category.toLowerCase();
 
-          return title.includes(searchQuery) || description.includes(searchQuery)||difficulty.includes(searchQuery)||Type.includes(searchQuery);
-        });
+          return title.includes(searchQuery) || description.includes(searchQuery)||difficulty.includes(searchQuery)||Type.includes(searchQuery)||Categoria.includes(searchQuery);        });
         return filteredCatalogs.length > 0 ? filteredCatalogs : "No se encontraron resultados";
     }
   }
