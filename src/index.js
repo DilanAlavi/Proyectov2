@@ -50,6 +50,9 @@ class CatalogList{
     searchGlobal(query) {
         // Convierte la consulta a minúsculas
         const searchQuery = query.toLowerCase();
+        if (!searchQuery) {
+            throw new Error("Vuelve a ingresar los datos");
+           }
 
         // Filtra los catálogos que coinciden con el título o descripción
         const filteredCatalogs = this.catalogData.filter(catalog => {
