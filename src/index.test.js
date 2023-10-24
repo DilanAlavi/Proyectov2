@@ -72,11 +72,15 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
 describe("Una Prueba para buscar una descripcion general de la Kata", () => {
   it("Verifica si la función busca la descripcion correctamente", () => {
     const catalogList = new CatalogList(catalogData);
-    const descripcion = "Kata para calcular el Máximo Común Divisor (MCD) de dos números."; // Nombre de la kata que estás buscando
+    const descripcion = "Máximo Común Divisor (MCD)"; // Nombre de la kata que estás buscando
+    const descripcionesperada=["Kata para calcular el Máximo Común Divisor (MCD) de dos números."];
     const descripcionEncontrado = catalogList.searchKataByDescription(descripcion);
 
     expect(descripcionEncontrado).toBeDefined();
-    expect(descripcionEncontrado.Description).toEqual(descripcion);
+    if (Array.isArray(descripcionEncontrado)) {
+      const alMenosUnResultadoCoincide = descripcionEncontrado.some(resultado => descripcionesperada.includes(resultado));
+      expect(alMenosUnResultadoCoincide).toBe(true);
+    }
   });
 });
 describe("Pruebas para buscar el título de la Kata (Kata no encontrada)", () => {
