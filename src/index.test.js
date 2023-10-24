@@ -66,3 +66,43 @@ describe("Pruebas para buscar el título de la Kata", () => {
     expect(resultados).not.toEqual("No se encontraron resultados");
   });
 });
+describe("Pruebas para la base de datos de katas", () => {
+  it("Verifica si la base de datos devuelve resultados esperados al buscar 'Calcu'", () => {
+    const catalogList = new CatalogList(catalogData);
+    const kataName = "Calcu"; // Nombre parcial de la kata que estás buscando
+
+    const resultadosEsperados = ["CalcularMCD"]; // Define aquí los resultados esperados
+
+    const resultados = catalogList.searchKataByName(kataName);
+
+    // Verifica que resultados no sea null o undefined y que no sea igual a "No se encontraron resultados"
+    expect(resultados).toBeDefined();
+    expect(resultados).not.toEqual("No se encontraron resultados");
+
+    // Si hay resultados, verifica que al menos un resultado coincide con los esperados
+    if (Array.isArray(resultados)) {
+      const alMenosUnResultadoCoincide = resultados.some(resultado => resultadosEsperados.includes(resultado));
+      expect(alMenosUnResultadoCoincide).toBe(true);
+    }
+  });
+});
+describe("Pruebas para la base de datos de katas", () => {
+  it("Verifica si la base de datos devuelve resultados esperados al buscar 'Calcu'", () => {
+    const catalogList = new CatalogList(catalogData);
+    const kataName = "Calcu"; // Nombre parcial de la kata que estás buscando
+
+    const resultadosEsperados = ["CalcularMCD"]; // Define aquí los resultados esperados
+
+    const resultados = catalogList.searchKataByName(kataName);
+
+    // Verifica que resultados no sea null o undefined y que no sea igual a "No se encontraron resultados"
+    expect(resultados).toBeDefined();
+    expect(resultados).not.toEqual("No se encontraron resultados");
+
+    // Si hay resultados, verifica que al menos uno coincide con los esperados
+    if (Array.isArray(resultados)) {
+      const alMenosUnResultadoCoincide = resultados.some(resultado => resultadosEsperados.includes(resultado));
+      expect(alMenosUnResultadoCoincide).toBe(true);
+    }
+  });
+});
