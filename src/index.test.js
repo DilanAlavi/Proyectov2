@@ -65,8 +65,8 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
 describe("Pruebas para buscar el título de la Kata (Kata no encontrada)", () => {
   it("Verifica si la función retorna un mensaje cuando la kata no se encuentra", () => {
     const catalogList = new CatalogList(catalogData);
-    const descripcion = "números"; // Nombre de la kata que estás buscando
-    const descripcionesperada=["Kata para calcular el Máximo Común Divisor (MCD) de dos números.","Kata para ordenar un arreglo de números en orden ascendente."];
+    const descripcion = "Kata"; // Nombre de la kata que estás buscando
+    const descripcionesperada=["Kata para calcular el Máximo Común Divisor (MCD) de dos números.","Kata para ordenar un arreglo de números en orden ascendente.","Kata para encontrar ciclos en un grafo no dirigido"];
     const descripcionEncontrado = catalogList.searchKataByDescription(descripcion);
 
     // Verifica que el resultado sea igual al mensaje de error
