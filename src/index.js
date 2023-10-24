@@ -56,12 +56,10 @@ class CatalogList{
         // Devuelve el resultado de la búsqueda
         return filteredCatalogs.length > 0 ? filteredCatalogs :"No se encontraron resultados";
       }
-      searchKataByDescription(nombre) {
-        if (nombre === "Kata para calcular el Máximo Común Divisor (MCD)") {
-            return "Kata para calcular el Máximo Común Divisor (MCD)";
+      searchKataByDescription(Descripcion) {
+        const Desctn = this.catalogData.find(item => item.Description === Descripcion);
+        return Desctn;
       }
-      }
-    
-}
+  }
 export default CatalogList;
     
