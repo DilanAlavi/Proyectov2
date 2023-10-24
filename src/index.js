@@ -30,12 +30,13 @@ class CatalogList{
     }
     
     searchKataByName(name) {
-        const ExampleKata = this.catalogData.find(item => item.Title === name);
-        if (ExampleKata){
-            return ExampleKata ;
-        }
-        else{
-            return "No se encontro Resultados";
+        const matchingKatas = this.catalogData.filter(item => item.Title.toLowerCase().includes(name.toLowerCase()));
+
+        if (matchingKatas.length > 0) {
+          return matchingKatas.map(kata => kata.Title);
+        } else {
+          // Si no se encuentra ninguna kata, retorna un mensaje de error
+          return "No se encontro Resultados";
         }
       }
     

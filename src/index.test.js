@@ -27,13 +27,20 @@ describe("Pruebas de obtención de título y descripción de la kata", () => {
 describe("Pruebas para buscar el título de la Kata", () => {
   it("Verifica si la función busca el título correctamente", () => {
     const catalogList = new CatalogList(catalogData);
-    const kataName = "CalcularMCD"; // Nombre de la kata que estás buscando
-    const tituloEncontrado = catalogList.searchKataByName(kataName);
+    const kataName = "Calcu"; // Nombre parcial de la kata que estás buscando
+    const resultados = catalogList.searchKataByName(kataName);
 
-    // Verifica que tituloEncontrado no sea null o undefined
-    expect(tituloEncontrado).toBeDefined();
-    // Verifica que el título de la kata encontrada sea igual al nombre de la kata que buscas
-    expect(tituloEncontrado.Title).toEqual(kataName);
+    // Verifica que resultados no sea null o undefined
+    expect(resultados).toBeDefined();
+    // Verifica que resultados sea un arreglo (si hay resultados) o un mensaje de error (si no hay resultados)
+    if (Array.isArray(resultados)) {
+      // Si hay resultados, verifica que al menos un resultado coincida con el nombre parcial
+      const alMenosUnResultadoCoincide = resultados.some(resultado => resultado.toLowerCase().includes(kataName.toLowerCase()));
+      expect(alMenosUnResultadoCoincide).toBe(true);
+    } else {
+      // Si no hay resultados, verifica que el mensaje de error sea igual a "No se encontraron resultados"
+      expect(resultados).toEqual("No se encontraron resultados");
+    }
   });
 });
 
