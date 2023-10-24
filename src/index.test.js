@@ -76,6 +76,7 @@ describe("Una Prueba para buscar una descripcion general de la Kata", () => {
     const descripcionEncontrado = catalogList.searchKataByDescription(descripcion);
 
     expect(descripcionEncontrado).toBeDefined();
+    expect(descripcionEncontrado.Description).toEqual(descripcion);
   });
 });
 
