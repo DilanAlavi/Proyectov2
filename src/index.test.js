@@ -54,3 +54,15 @@ describe("Pruebas para buscar el título de la Kata (Kata no encontrada)", () =>
     expect(resultado).toEqual("No se encontro Resultados");
   });
 });
+
+describe("Pruebas para buscar el título de la Kata", () => {
+  it("Verifica si la función busca el título correctamente", () => {
+    const catalogList = new CatalogList(catalogData);
+    const kataName = "Calcu"; // Nombre parcial de la kata que estás buscando
+    const resultados = catalogList.searchKataByName(kataName);
+
+    // Verifica que resultados no sea null o undefined y que no sea igual a "No se encontraron resultados"
+    expect(resultados).toBeDefined();
+    expect(resultados).not.toEqual("No se encontraron resultados");
+  });
+});
