@@ -18,7 +18,14 @@ window.onload = () => {
 
     searchButton.addEventListener("click", () => {
         const searchName = searchInput.value.trim();
-        const searchResult = catalogListInstance.searchGlobal(searchName);
+
+        if (searchName === '') {
+          // Si el campo de búsqueda está vacío, muestra un mensaje de error
+          alert("Ingrese datos para la búsqueda");
+      } else {
+          // Realiza la búsqueda normalmente
+          const searchResult = catalogListInstance.searchGlobal(searchName);
+  
 
         // Limpia el contenido anterior en el contenedor de catálogos
         catalogContainer.innerHTML = '';
@@ -39,5 +46,7 @@ window.onload = () => {
             displayedCatalogs.length = 0; // Limpia el array
             displayedCatalogs.push(...searchResult);
         }
+         }
     });
+    
  };

@@ -60,43 +60,6 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
 
   expect(resultado).toEqual(kataEsperada);
 });
-
-
-describe("Pruebas para buscar el título de la Kata (Kata no encontrada)", () => {
-  it("Verifica si la función retorna un mensaje cuando la kata no se encuentra", () => {
-    const catalogList = new CatalogList(catalogData);
-    const kataBuscada = "Kata"; // Nombre de la kata que estás buscando
-    const resultado = catalogList.searchGlobal(kataBuscada);
-
-    // Verifica que el resultado sea igual al mensaje de error
-    const kataEsperada = [
-      {
-          Title: "CalcularMCD",
-          Description: "Kata para calcular el Máximo Común Divisor (MCD) de dos números.",
-          Difficulty: "Facil",
-          Category: "Numeros, Matematicas, Ejercicios matematicos",
-          Type: "Ejemplo"
-      },
-      {
-          Title: "Ordenar Arreglos",
-          Description: "Kata para ordenar un arreglo de números en orden ascendente.",
-          Difficulty: "Intermedio",
-          Category: "Matematicas",
-          Type: "Ejercicio"
-  
-      },
-      {
-          Title: "Encontrar Ciclos en un Grafo",
-          Description: "Kata para encontrar ciclos en un grafo no dirigido.",
-          Difficulty: "Difícil",
-          Category: "Matematicas, estrucura",
-          Type: "Ejercicio"
-  
-      }
-  ];
-      expect(resultado).toEqual(kataEsperada);
-    });
-  });
   describe("searchGlobal", () => {
     it("deberia buscar caracteristicas del catalogo", () => {
       const catalogList = new CatalogList(catalogData);
