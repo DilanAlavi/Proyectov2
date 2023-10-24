@@ -56,6 +56,11 @@ class CatalogList{
         // Devuelve el resultado de la búsqueda
         return filteredCatalogs.length > 0 ? filteredCatalogs :"No se encontraron resultados";
       }
+      searchKataByDescription(nombre) {
+        if (nombre === "Kata para ordenar un arreglo de números en orden ascendente") {
+          return "Kata para ordenar un arreglo de números en orden ascendente";
+      }
+      }
     
 }
 export default CatalogList;

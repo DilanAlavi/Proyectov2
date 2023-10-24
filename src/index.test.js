@@ -71,8 +71,9 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
 
 describe("Una Prueba para buscar una descripcion general de la Kata", () => {
   it("Verifica si la función busca la descripcion correctamente", () => {
+    const catalogList = new CatalogList(catalogData);
     const descripcion = "Kata para ordenar un arreglo de números en orden ascendente"; // Nombre de la kata que estás buscando
-    const descripcionEncontrado = searchKataByDescription(descripcion);
+    const descripcionEncontrado = catalogList.searchKataByDescription(descripcion);
 
     expect(descripcionEncontrado).toEqual("Kata para ordenar un arreglo de números en orden ascendente");
   });
