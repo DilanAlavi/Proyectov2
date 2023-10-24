@@ -29,12 +29,10 @@ class CatalogList{
         });
     }
     
-    searchKataByName(nombre)
-    {
-        if (nombre === "CalcularMCD") {
-            return "CalcularMCD"; }
-    }
-
+    searchKataByName(name) {
+        const kata = this.catalogData.find(item => item.Title === name);
+        return kata;
+      }
     
 }
 export default CatalogList;
