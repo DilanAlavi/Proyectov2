@@ -10,7 +10,7 @@ const catalogListInstance = new CatalogList(catalogData);
 window.onload = () => {
    
   catalogListInstance.renderCatalogsToContainer();
-  // Agregamos un evento de escucha al botón de búsqueda por nombre
+  //"Configurando el evento de búsqueda por nombre en el botón"
   const searchButton = document.getElementById("search-button");
   const searchInput = document.getElementById("search-input");
 
