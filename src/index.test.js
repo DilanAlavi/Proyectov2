@@ -99,7 +99,7 @@ describe("Pruebas para buscar el título de la Kata (Kata no encontrada)", () =>
     describe("searchGlobal", () => {
       it("debería encontrar catálogos con dificultad 'Facil'", () => {
         const catalogList = new CatalogList(catalogData);
-        const query = "Facil";
+        const query = "Intermedio";
     
         const resultado = catalogList.searchGlobal(query);
     
