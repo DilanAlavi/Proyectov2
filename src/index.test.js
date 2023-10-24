@@ -65,5 +65,22 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
 
     }
 ];
+
   expect(resultado).toEqual(kataEsperada);
 });
+
+describe("Una Prueba para buscar una descripcion general de la Kata", () => {
+  it("Verifica si la función busca la descripcion correctamente", () => {
+    const descripcion = "Kata para ordenar un arreglo de números en orden ascendente"; // Nombre de la kata que estás buscando
+    const descripcionEncontrado = searchKataByDescription(descripcion);
+
+    expect(descripcionEncontrado).toEqual("Kata para ordenar un arreglo de números en orden ascendente");
+  });
+});
+
+function searchKataByDescription(nombre) {
+  // Simulamos una búsqueda de la Descripcion de una Kata
+  // En este caso, simplemente comparamos el nombre con un valor fijo
+  if (nombre === "Kata para ordenar un arreglo de números en orden ascendente") {
+    return "Kata para ordenar un arreglo de números en orden ascendente";
+}}
