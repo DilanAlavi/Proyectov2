@@ -1,6 +1,7 @@
 class CatalogList{
     constructor(data) {
         this.catalogData = data;
+        this.displayedCatalogs = [];
     }
     displayCatalogNames() {
         return this.catalogData.map(catalog => {
@@ -33,7 +34,7 @@ class CatalogList{
         const catalogTemplate = document.getElementById("catalog-template");
 
         // Limpia el contenedor de catálogos antes de mostrar nuevos resultados
-        catalogContainer.innerHTML = '';
+        //catalogContainer.innerHTML = '';
 
         catalogs.forEach(catalog => {
             const catalogClone = document.importNode(catalogTemplate.content, true);
@@ -53,7 +54,7 @@ class CatalogList{
         const filteredCatalogs = this.catalogData.filter(catalog => catalog.Title.toLowerCase().includes(searchName));
 
         // Devuelve el resultado de la búsqueda
-        return filteredCatalogs.length > 0 ? filteredCatalogs : "No se encontraron resultados";
+        return filteredCatalogs.length > 0 ? filteredCatalogs :"No se encontraron resultados";
       }
     
 }

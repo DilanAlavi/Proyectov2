@@ -8,5 +8,17 @@ const catalogListInstance = new CatalogList(catalogData);
 
 // Llamamos al método para mostrar los catálogos cuando se cargue la página
 window.onload = () => {
-    catalogListInstance. renderCatalogsToContainer();
-  };
+   
+  catalogListInstance.renderCatalogsToContainer();
+  // Agregamos un evento de escucha al botón de búsqueda por nombre
+  const searchButton = document.getElementById("search-button");
+  const searchInput = document.getElementById("search-input");
+
+ searchButton.addEventListener("click", () => {
+   const searchName = searchInput.value.trim(); // Obtenemos el nombre de búsqueda
+        const searchResult = catalogListInstance.searchByKataName(searchName); // Realizamos la búsqueda
+
+       // Solo llamamos al método displayCatalogName() una vez
+       catalogListInstance.displayCatalogName(searchResult); // Mostramos los resultados de la búsqueda
+    });
+ };
