@@ -100,12 +100,19 @@ describe("Pruebas para buscar el título de la Kata (Kata no encontrada)", () =>
   describe("searchGlobal", () => {
     it("deberia buscar caracteristicas del catalogo", () => {
       const catalogList = new CatalogList(catalogData);
-      const query = "Numero";
+      const query = "Matematicas";
   
       const resultado = catalogList.searchGlobal(query);
   
       // Comprueba que el resultado contenga catálogos con dificultad 'Facil'
-      expect(resultado).toBeDefined(); 
+      const count = resultado.reduce((total, catalog) => {
+        if (catalog.Category.toLowerCase().includes(query.toLowerCase())) {
+          return total + 1;
+        }
+        return total;
+      }, 0);
+  
+      expect(count).toBe(3); // Debería haber 3 catálogos con 'Matematicas' en la categoría
     });
   });
 
