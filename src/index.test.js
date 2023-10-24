@@ -87,11 +87,10 @@ describe("Pruebas para la base de datos de katas", () => {
   });
 });
 describe("Pruebas para la base de datos de katas", () => {
-  it("Verifica si la base de datos devuelve resultados esperados al buscar 'Calcu'", () => {
+  it("Verifica si la base de datos devuelve resultados esperados al buscar 'C'", () => {
     const catalogList = new CatalogList(catalogData);
-    const kataName = "c"; // Nombre parcial de la kata que estás buscando
-
-    const resultadosEsperados = ["CalcularMCD","Encontrar Ciclos en un Grafo"]; // Define aquí los resultados esperados
+    const kataName = "ar"; // Nombre parcial de la kata que estás buscando
+    const resultadosEsperados = ["CalcularMCD","Encontrar Ciclos en un Grafo","Ordenar Arreglos"]; // Define aquí los resultados esperados
     const resultados = catalogList.searchKataByName(kataName);
 
     // Verifica que resultados no sea null o undefined y que no sea igual a "No se encontraron resultados"
