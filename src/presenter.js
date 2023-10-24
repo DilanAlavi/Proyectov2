@@ -18,7 +18,7 @@ window.onload = () => {
 
     searchButton.addEventListener("click", () => {
         const searchName = searchInput.value.trim();
-        const searchResult = catalogListInstance.searchKataByDescription(searchName);
+        const searchResult = catalogListInstance.searchGlobal(searchName);
 
         // Limpia el contenido anterior en el contenedor de catálogos
         catalogContainer.innerHTML = '';
