@@ -29,7 +29,7 @@ class CatalogList{
             catalogContainer.appendChild(catalogClone);
         });
     }
-    displayCatalogName(catalogs) {
+    displayCatalog(catalogs) {
         const catalogContainer = document.getElementById("catalog-container");
         const catalogTemplate = document.getElementById("catalog-template");
 
@@ -57,13 +57,9 @@ class CatalogList{
         return filteredCatalogs.length > 0 ? filteredCatalogs :"No se encontraron resultados";
       }
       searchKataByDescription(Descripcion) {
-        const Desctn = this.catalogData.find(item => item.Description === Descripcion);
-        if (Desctn){
-            return Desctn ;
-        }
-        else{
-            return "No se encontro Resultados";
-        }
+        const searchDescriprion= Descripcion.toLowerCase();
+        const filteredCatalogs = this.catalogData.filter(catalog => catalog.Description.toLowerCase().includes( searchDescriprion));
+        return filteredCatalogs.length > 0 ? filteredCatalogs : "No se encontro Resultados";
     }
   }
 export default CatalogList;

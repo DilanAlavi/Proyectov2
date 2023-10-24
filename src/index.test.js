@@ -65,16 +65,35 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
 describe("Pruebas para buscar el título de la Kata (Kata no encontrada)", () => {
   it("Verifica si la función retorna un mensaje cuando la kata no se encuentra", () => {
     const catalogList = new CatalogList(catalogData);
-    const descripcion = "números"; // Nombre de la kata que estás buscando
-    const descripcionesperada=["Kata para ordenar un arreglo de números en orden ascendente.","Kata para calcular el Máximo Común Divisor (MCD) de dos números."];
-    const descripcionEncontrado = catalogList.searchKataByDescription(descripcion);
+    const kataBuscada = "Kata"; // Nombre de la kata que estás buscando
+    const resultado = catalogList.searchKataByDescription(kataBuscada);
 
     // Verifica que el resultado sea igual al mensaje de error
-    expect(descripcionEncontrado).toEqual("No se encontro Resultados");
-    expect(descripcionEncontrado).toBeDefined();
-    if (Array.isArray(descripcionEncontrado)) {
-      const alMenosDosResultadosCoincide = descripcionEncontrado.some(resultado => descripcionesperada.includes(resultado));
-      expect(alMenosDosResultadosCoincide).toBe(true);
-    }
-  });
+    const kataEsperada = [
+      {
+          Title: "CalcularMCD",
+          Description: "Kata para calcular el Máximo Común Divisor (MCD) de dos números.",
+          Difficulty: "Facil",
+          Category: "Numeros, Matematicas, Ejercicios matematicos",
+          Type: "Ejemplo"
+      },
+      {
+          Title: "Ordenar Arreglos",
+          Description: "Kata para ordenar un arreglo de números en orden ascendente.",
+          Difficulty: "Intermedio",
+          Category: "Matematicas",
+          Type: "Ejercicio"
+  
+      },
+      {
+          Title: "Encontrar Ciclos en un Grafo",
+          Description: "Kata para encontrar ciclos en un grafo no dirigido.",
+          Difficulty: "Difícil",
+          Category: "Matematicas, estrucura",
+          Type: "Ejercicio"
+  
+      }
+  ];
+      expect(resultado).toEqual(kataEsperada);
+    });
 });
