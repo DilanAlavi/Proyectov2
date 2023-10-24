@@ -34,17 +34,36 @@ it("Debería manejar una búsqueda que no devuelve resultados", () => {
 });
 it("Debería manejar una búsqueda con coincidencia exacta", () => {
   const catalogList = new CatalogList(catalogData); // Pasa el arreglo de datos al constructor
-  const kataName = "CalcularMCD"; // Nombre exacto de una kata existente
+  const kataName = "ar"; // Nombre exacto de una kata existente
+
 
   const resultado = catalogList.searchByKataName(kataName);
 
   // Verifica que el resultado sea igual al objeto de la kata
-  const kataEsperada =   [ {
-    "Category": "Numeros, Matematicas, Ejercicios matematicos",
-   "Description": "Kata para calcular el Máximo Común Divisor (MCD) de dos números.",
-   "Difficulty": "Facil",
-   "Title": "CalcularMCD",
-   "Type": "Ejemplo" 
- }]; 
+  const kataEsperada = [
+    {
+        Title: "CalcularMCD",
+        Description: "Kata para calcular el Máximo Común Divisor (MCD) de dos números.",
+        Difficulty: "Facil",
+        Category: "Numeros, Matematicas, Ejercicios matematicos",
+        Type: "Ejemplo"
+    },
+    {
+        Title: "Ordenar Arreglos",
+        Description: "Kata para ordenar un arreglo de números en orden ascendente.",
+        Difficulty: "Intermedio",
+        Category: "Matematicas",
+        Type: "Ejercicio"
+
+    },
+    {
+        Title: "Encontrar Ciclos en un Grafo",
+        Description: "Kata para encontrar ciclos en un grafo no dirigido.",
+        Difficulty: "Difícil",
+        Category: "Matematicas, estrucura",
+        Type: "Ejercicio"
+
+    }
+];
   expect(resultado).toEqual(kataEsperada);
 });
