@@ -12,13 +12,32 @@ window.onload = () => {
   catalogListInstance.renderCatalogsToContainer();
   //"Configurando el evento de búsqueda por nombre en el botón"
   const searchButton = document.getElementById("search-button");
-  const searchInput = document.getElementById("search-input");
+    const searchInput = document.getElementById("search-input");
+    const catalogContainer = document.getElementById("catalog-container");
+    const catalogTemplate = document.getElementById("catalog-template");
 
- searchButton.addEventListener("click", () => {
-   const searchName = searchInput.value.trim(); // Obtenemos el nombre de búsqueda
-        const searchResult = catalogListInstance.searchByKataName(searchName); // Realizamos la búsqueda
+    searchButton.addEventListener("click", () => {
+        const searchName = searchInput.value.trim();
+        const searchResult = catalogListInstance.searchByKataName(searchName);
 
-       // Solo llamamos al método displayCatalogName() una vez
-       catalogListInstance.displayCatalogName(searchResult); // Mostramos los resultados de la búsqueda
+        // Limpia el contenido anterior en el contenedor de catálogos
+        catalogContainer.innerHTML = '';
+
+        if (searchResult.length > 0) {
+            // Agrega los nuevos resultados al contenedor
+            searchResult.forEach(catalog => {
+                const catalogClone = document.importNode(catalogTemplate.content, true);
+                catalogClone.querySelector('.Title').textContent = catalog.Title;
+                catalogClone.querySelector('.Description').textContent = catalog.Description;
+                catalogClone.querySelector('.Difficulty').textContent = catalog.Difficulty;
+                catalogClone.querySelector('.Category').textContent = catalog.Category;
+                catalogClone.querySelector('.Type').textContent = catalog.Type;
+                catalogContainer.appendChild(catalogClone);
+            });
+
+            // Actualiza el array de catálogos mostrados
+            displayedCatalogs.length = 0; // Limpia el array
+            displayedCatalogs.push(...searchResult);
+        }
     });
  };
