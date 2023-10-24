@@ -29,7 +29,7 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
   const kataName = "ar"; // Nombre exacto de una kata existente
 
 
-  const resultado = catalogList.searchByKataName(kataName);
+  const resultado = catalogList.searchGlobal(kataName);
 
   // Verifica que el resultado sea igual al objeto de la kata
   const kataEsperada = [
@@ -66,7 +66,7 @@ describe("Pruebas para buscar el título de la Kata (Kata no encontrada)", () =>
   it("Verifica si la función retorna un mensaje cuando la kata no se encuentra", () => {
     const catalogList = new CatalogList(catalogData);
     const kataBuscada = "Kata"; // Nombre de la kata que estás buscando
-    const resultado = catalogList.searchKataByDescription(kataBuscada);
+    const resultado = catalogList.searchGlobal(kataBuscada);
 
     // Verifica que el resultado sea igual al mensaje de error
     const kataEsperada = [

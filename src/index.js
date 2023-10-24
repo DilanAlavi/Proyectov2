@@ -47,19 +47,18 @@ class CatalogList{
             catalogContainer.appendChild(catalogClone);
         });
     }
-    searchByKataName(name) {
-        // Convierte el nombre de búsqueda a minúsculas
-        const searchName = name.toLowerCase();
-        // Filtra los catálogos que coinciden con el nombre de búsqueda
-        const filteredCatalogs = this.catalogData.filter(catalog => catalog.Title.toLowerCase().includes(searchName));
+    searchGlobal(query) {
+        // Convierte la consulta a minúsculas
+        const searchQuery = query.toLowerCase();
 
-        // Devuelve el resultado de la búsqueda
-        return filteredCatalogs.length > 0 ? filteredCatalogs :"No se encontraron resultados";
-      }
-      searchKataByDescription(Descripcion) {
-        const searchDescriprion= Descripcion.toLowerCase();
-        const filteredCatalogs = this.catalogData.filter(catalog => catalog.Description.toLowerCase().includes( searchDescriprion));
-        return filteredCatalogs.length > 0 ? filteredCatalogs : "No se encontro Resultados";
+        // Filtra los catálogos que coinciden con el título o descripción
+        const filteredCatalogs = this.catalogData.filter(catalog => {
+          const title = catalog.Title.toLowerCase();
+          const description = catalog.Description.toLowerCase();
+
+          return title.includes(searchQuery) || description.includes(searchQuery);
+        });
+        return filteredCatalogs.length > 0 ? filteredCatalogs : "No se encontraron resultados";
     }
   }
 export default CatalogList;
