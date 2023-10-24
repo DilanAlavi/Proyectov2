@@ -29,15 +29,14 @@ class CatalogList{
         });
     }
     
-    searchKataByName(name) {
-        const matchingKatas = this.catalogData.filter(item => item.Title.toLowerCase().includes(name.toLowerCase()));
+    searchByKataName(name) {
+        // Convierte el nombre de búsqueda a minúsculas
+        const searchName = name.toLowerCase();
+        // Filtra los catálogos que coinciden con el nombre de búsqueda
+        const filteredCatalogs = this.catalogData.filter(catalog => catalog.Title.toLowerCase().includes(searchName));
 
-        if (matchingKatas.length > 0) {
-          return matchingKatas.map(kata => kata.Title);
-        } else {
-          // Si no se encuentra ninguna kata, retorna un mensaje de error
-          return "No se encontro Resultados";
-        }
+        // Devuelve el resultado de la búsqueda
+        return filteredCatalogs.length > 0 ? filteredCatalogs : "No se encontraron resultados";
       }
     
 }
