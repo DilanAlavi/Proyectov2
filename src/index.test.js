@@ -72,8 +72,8 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
 describe("Una Prueba para buscar una descripcion general de la Kata", () => {
   it("Verifica si la función busca la descripcion correctamente", () => {
     const catalogList = new CatalogList(catalogData);
-    const descripcion = "Máximo Común Divisor (MCD)"; // Nombre de la kata que estás buscando
-    const descripcionesperada=["Kata para calcular el Máximo Común Divisor (MCD) de dos números."];
+    const descripcion = "ciclos en un grafo"; // Nombre de la kata que estás buscando
+    const descripcionesperada=["Kata para encontrar ciclos en un grafo no dirigido."];
     const descripcionEncontrado = catalogList.searchKataByDescription(descripcion);
 
     expect(descripcionEncontrado).toBeDefined();
