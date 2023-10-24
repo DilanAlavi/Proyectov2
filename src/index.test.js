@@ -115,7 +115,7 @@ describe("Pruebas para buscar el título de la Kata (Kata no encontrada)", () =>
   
       const resultado = catalogList.searchGlobal(query);
   
-      // Agrega una afirmación para verificar que se ha realizado una búsqueda por "Ejercicio"
-    expect(resultado).toBeDefined(); 
-    });
+        // Comprueba que el resultado contenga catálogos de Tipo 'Ejercicio'
+    expect(resultado).toHaveLength(2); // test para buscar catálogos por Tipo 'Ejercicio
   });
+});
