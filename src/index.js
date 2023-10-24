@@ -30,8 +30,8 @@ class CatalogList{
     }
     
     searchKataByName(name) {
-        const kata = this.catalogData.find(item => item.Title === name);
-        return kata;
+        const ExampleKata = this.catalogData.find(item => item.Title === name);
+        return ExampleKata ;
       }
     
 }

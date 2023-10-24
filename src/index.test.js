@@ -32,6 +32,8 @@ describe("Pruebas para buscar el título de la Kata", () => {
 
     // Verifica que tituloEncontrado no sea null o undefined
     expect(tituloEncontrado).toBeDefined();
+    // Verifica que el título de la kata encontrada sea igual al nombre de la kata que buscas
+    expect(tituloEncontrado.Title).toEqual(kataName);
   });
 });
 
