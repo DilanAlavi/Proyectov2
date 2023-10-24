@@ -47,6 +47,9 @@ class CatalogList{
             catalogContainer.appendChild(catalogClone);
         });
     }
+    removeAccents(str) {
+        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
     searchGlobal(query) {
         // Convierte la consulta a minúsculas
         const searchQuery = query.toLowerCase();
