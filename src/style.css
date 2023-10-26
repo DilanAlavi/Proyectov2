@@ -126,6 +126,11 @@ select {
     color: #888;
     margin-top: 5px;
 }
+.catalog-item .Estado {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+}
 
 /* Estilo para el botón de detalles */
 .catalog-item button {

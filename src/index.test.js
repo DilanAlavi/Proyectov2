@@ -32,7 +32,7 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
 
 
   const resultado = catalogList.searchGlobal(kataName);
-
+  
   // Verifica que el resultado sea igual al objeto de la kata
   const kataEsperada = [
     {
