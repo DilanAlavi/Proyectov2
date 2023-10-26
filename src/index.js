@@ -10,7 +10,8 @@ class CatalogList{
                 description: catalog.Description,
                 difficulty: catalog.Difficulty,
                 category: catalog.Category,
-                type: catalog.Type
+                type: catalog.Type,
+                estado: catalog.Estado
             };
         });
     }
@@ -26,6 +27,7 @@ class CatalogList{
             catalogClone.querySelector('.Difficulty').textContent = catalog.Difficulty;
             catalogClone.querySelector('.Category').textContent = catalog.Category;
             catalogClone.querySelector('.Type').textContent = catalog.Type;
+            catalogClone.querySelector('.Estado').textContent = catalog.Estado;
             catalogContainer.appendChild(catalogClone);
         });
     }
@@ -44,6 +46,7 @@ class CatalogList{
             catalogClone.querySelector('.Difficulty').textContent = catalog.Difficulty;
             catalogClone.querySelector('.Category').textContent = catalog.Category;
             catalogClone.querySelector('.Type').textContent = catalog.Type;
+            catalogClone.querySelector('.Estado').textContent = catalog.Estado;
             catalogContainer.appendChild(catalogClone);
         });
     }
@@ -63,9 +66,10 @@ class CatalogList{
           const description = catalog.Description.toLowerCase();
           const difficulty = catalog.Difficulty.toLowerCase();//Agregamos Dificultad
           const Type= catalog.Type.toLowerCase();//Agregamos el Tipo de 
-          const Categoria=catalog.Category.toLowerCase();
+          const Estado =catalog.Estado.toLowerCase();
+          const Categoria =catalog.Category.toLowerCase();
 
-          return title.includes(searchQuery) || description.includes(searchQuery)||difficulty.includes(searchQuery)||Type.includes(searchQuery)||Categoria.includes(searchQuery);        });
+          return title.includes(searchQuery) || description.includes(searchQuery)||difficulty.includes(searchQuery)||Type.includes(searchQuery)||Categoria.includes(searchQuery)||Estado.includes(searchQuery);        });
           if (filteredCatalogs.length === 0) {
             throw new Error("No se encontraron resultados");
           }

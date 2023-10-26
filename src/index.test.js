@@ -19,6 +19,8 @@ describe("Pruebas de obtención de título y descripción de la kata", () => {
       expect(catalogItems[index].category).toEqual(catalog.Category);
       //Verifica que el TIPO de ejercicio de Kata en catalogItems coincida con la de TIPO de ejercicio de Kata en catalogData
       expect(catalogItems[index].type).toEqual(catalog.Type);
+      //Verifica que el Estado de ejercicio de Kata en catalogItems coincida con la de TIPO de ejercicio de Kata en catalogData
+      expect(catalogItems[index].estado).toEqual(catalog.Estado);
 
     });
   });
@@ -38,14 +40,16 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
         Description: "Kata para calcular el Máximo Común Divisor (MCD) de dos números.",
         Difficulty: "Facil",
         Category: "Numeros, Matematicas, Ejercicios matematicos",
-        Type: "Ejemplo"
+        Type: "Ejemplo",
+        Estado: "Terminado"
     },
     {
         Title: "Ordenar Arreglos",
         Description: "Kata para ordenar un arreglo de números en orden ascendente.",
         Difficulty: "Intermedio",
         Category: "Matematicas",
-        Type: "Ejercicio"
+        Type: "Ejercicio",
+        Estado: " NO Terminado"
 
     },
     {
@@ -53,7 +57,8 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
         Description: "Kata para encontrar ciclos en un grafo no dirigido.",
         Difficulty: "Difícil",
         Category: "Matematicas, estrucura",
-        Type: "Ejercicio"
+        Type: "Ejercicio",
+        Estado: "Terminado"
 
     }
 ];
@@ -63,7 +68,7 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
   describe("searchGlobal", () => {
     it("deberia buscar caracteristicas del catalogo", () => {
       const catalogList = new CatalogList(catalogData);
-      const query = "Matematicas";
+      const query = "Terminado";
   
       const resultado = catalogList.searchGlobal(query);
   

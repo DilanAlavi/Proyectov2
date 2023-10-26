@@ -163,7 +163,7 @@ select {
 }
 
 /* Estilo para los select */
-#kata-difficulty, #kata-type {
+#kata-difficulty, #kata-type, #kata-estado {
     display: block;
     width: 100%;
     padding: 10px;
