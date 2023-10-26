@@ -9,11 +9,11 @@
     <h1>Lista de Catálogo de Katas</h1>
     <div id="search-container">
         <input type="text" id="search-input" placeholder="Ingrese un catálogo">
-        <button id="search-button">Buscar </button>
+        <button id="search-button">Buscar</button>
     </div>
     <label for="sort-select">Ordenar por título:</label>
     <select id="sort-select">    
-        <option value="Para escojer">Ordenar</option>
+        <option value="Para elegir">Ordenar</option>
         <option value="asc">A-Z</option>
         <option value="desc">Z-A</option>
     </select>
@@ -23,9 +23,10 @@
         <option value="asc">Fácil → Difícil</option>
         <option value="desc">Difícil → Fácil</option>
     </select>
-     <!-- Botón para crear un nuevo kata -->
-     <button id="create-kata-button">Crear Nuevo Kata</button>
-     
+    
+    <!-- Botón para crear un nuevo kata -->
+    <button id="create-kata-button">Crear Nuevo Kata</button>
+
     <!-- Formulario para crear un nuevo kata (inicialmente oculto) -->
     <div id="create-kata-form" style="display: none;">
         <input type="text" id="kata-title" placeholder="Título">
@@ -41,13 +42,12 @@
             <div class="catalog-box">
                 <strong class="Title"></strong><br>
                 Descripción: <span class="Description"></span><br>
-                Dificultad: <span class=" Difficulty"></span><br>
-                Categoria: <span class=" Category"></span><br>
-                <span class=" Type"></span><br>
-                
-              </div>
-            </template>
-        </div>
-        <script type="module" src="./src/presenter.js"></script>
-    </body>
-    </html>
+                Dificultad: <span class="Difficulty"></span><br>
+                Categoria: <span class="Category"></span><br>
+                <span class="Type"></span><br>
+            </div>
+        </template>
+    </div>
+    <script type="module" src="./src/presenter.js"></script>
+</body>
+</html>
