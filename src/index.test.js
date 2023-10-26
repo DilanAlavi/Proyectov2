@@ -92,17 +92,17 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
   });
   describe("buscar POr estado", () => {
     it("debería lanzar un mensaje de error si no se encuentran resultados", () => {
-      const busqueda="NoTerminado";
-      expect(BuscarPorEstado(busqueda)).toBe("NoTerminado");
+      const catalogList = new CatalogList(catalogData); // Pasa el arreglo de datos al constructor
+
+      const catalogItems = catalogList.displayCatalogNames();
+  
+      // Recorre todos los catálogos en catalogData
+      catalogData.forEach((catalog, index) => {
+        // Verifica que el título en catalogItems coincida con el título en catalogData
+        expect(catalogItems[index].estado).toEqual(catalog.Estado);
+  
+      });
     });
   });
-  function BuscarPorEstado(busqueda){
-    if(busqueda==="Terminado")
-    {
-      return busqueda;
-    }
-    else{
-      return "NoTerminado";
-    }
-  }
+
 

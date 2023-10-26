@@ -10,7 +10,8 @@ class CatalogList{
                 description: catalog.Description,
                 difficulty: catalog.Difficulty,
                 category: catalog.Category,
-                type: catalog.Type
+                type: catalog.Type,
+                estado: catalog.Estado
             };
         });
     }
@@ -81,6 +82,23 @@ class CatalogList{
                 dataToSort.sort((a, b) => b.Title.localeCompare(a.Title));
             }
         }
+        searchGlobalEstadoEstado(query) {
+        // Convierte la consulta a minúsculas
+        const searchQuery = query.toLowerCase();
+        // Filtra los catálogos que coinciden con el título o descripción
+        const filteredCatalogs = this.catalogData.filter(catalog => {
+          const title = catalog.Title.toLowerCase();
+          const description = catalog.Description.toLowerCase();
+          const difficulty = catalog.Difficulty.toLowerCase();//Agregamos Dificultad
+          const Type= catalog.Type.toLowerCase();//Agregamos el Tipo de 
+          const Categoria=catalog.Category.toLowerCase();
+
+          return title.includes(searchQuery) || description.includes(searchQuery)||difficulty.includes(searchQuery)||Type.includes(searchQuery)||Categoria.includes(searchQuery);    
+          
+         }); 
+        }
+        
+        
   }
 export default CatalogList;
     
