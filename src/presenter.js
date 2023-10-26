@@ -49,4 +49,20 @@ window.onload = () => {
          }
     });
     
- };
+    sortSelect.addEventListener("change", () => {
+      catalogListInstance.sortCatalogs(sortSelect.value);
+
+      // Vuelve a mostrar la lista de catálogos en el contenedor.
+      catalogContainer.innerHTML = '';
+      catalogData.forEach(catalog => {
+          const catalogClone = document.importNode(catalogTemplate.content, true);
+          catalogClone.querySelector('.Title').textContent = catalog.Title;
+          catalogClone.querySelector('.Description').textContent = catalog.Description;
+          catalogClone.querySelector('.Difficulty').textContent = catalog.Difficulty;
+          catalogClone.querySelector('.Category').textContent = catalog.Category;
+          catalogClone.querySelector('.Type').textContent = catalog.Type;
+          catalogContainer.appendChild(catalogClone);
+      });
+  });
+};
+ 
