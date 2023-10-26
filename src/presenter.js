@@ -129,7 +129,7 @@ window.onload = () => {
             Difficulty: difficulty,
             Category: category,
             Type: type,
-            Estado: Estado
+            Estado: estado
         };
 // Obtener el índice del ejercicio que se está editando (si está en modo edición)
         const editIndex = createKataForm.dataset.editIndex;

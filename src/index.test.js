@@ -117,7 +117,7 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
         Title: "CalcularMCD",
         Description: "Kata para calcular el Máximo Común Divisor (MCD) de dos números.",
         Difficulty: "Facil",
-        Category: "Numeros, Matematicas, Ejercicios matematicos",
+        Category: "Numeros, Msatematicas, Ejercicios matematicos",
         Type: "Ejemplo",
         Estado: "Terminado"
     },

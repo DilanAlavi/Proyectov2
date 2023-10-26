@@ -46,6 +46,7 @@ class CatalogList{
             catalogClone.querySelector('.Difficulty').textContent = catalog.Difficulty;
             catalogClone.querySelector('.Category').textContent = catalog.Category;
             catalogClone.querySelector('.Type').textContent = catalog.Type;
+            catalogClone.querySelector('.Estado').textContent = catalog.Estado;
             catalogContainer.appendChild(catalogClone);
         });
     }
