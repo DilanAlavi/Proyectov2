@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="src/style.css">
     <title>Lista De Catálogos</title>
 </head>
 <body>
@@ -47,14 +48,17 @@
     <div id="catalog-container">
         <template id="catalog-template">
             <div class="catalog-box">
-                <strong class="Title"></strong><br>
-                Descripción: <span class="Description"></span><br>
-                Dificultad: <span class="Difficulty"></span><br>
-                Categoria: <span class="Category"></span><br>
-                <span class="Type"></span><br>
-                    <!-- Botones de Editar y Eliminar -->
-                 <button class="edit-button">Editar</button>
-                 <button class="delete-button">Eliminar</button>
+                <div class="catalog-item">
+                    <p class="Title"></p>
+                    <p class="Description"></p>
+                    <p class="Difficulty"></p>
+                    <p class="Category"></p>
+                    <p class="Type"></p>
+                    <button class="edit-button">Editar</button>
+                    <button class="delete-button">Eliminar</button>
+                </div>
+                   
+                 
             </div>
         </template>
     </div>
