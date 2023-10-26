@@ -22,6 +22,7 @@ function renderCatalogs(catalogs) {
         catalogClone.querySelector('.Difficulty').textContent = catalog.Difficulty;
         catalogClone.querySelector('.Category').textContent = catalog.Category;
         catalogClone.querySelector('.Type').textContent = catalog.Type;
+        catalogClone.querySelector('.status').textContent = catalog.status;
 
         // Botón de Editar
         const editButton = catalogClone.querySelector('.edit-button');
@@ -81,6 +82,15 @@ window.onload = () => {
         if (sortValue === "asc" || sortValue === "desc") {
             catalogListInstance.OrdenarCatalogs(sortValue);
             renderCatalogs(catalogData);
+        
+        }
+    });
+    StatusSelect.addEventListener("change", () => {
+        const sortValue2 = StatusSelect.value;
+    
+        if (sortValue2 === "Terminado" || sortValue2 === "No Terminado") {
+            catalogListInstance.FiltrarStatus(sortValue2);
+            renderCatalogs(catalogData);
         }
     });
 
@@ -106,23 +116,7 @@ window.onload = () => {
             renderCatalogs(catalogData);
         }
     });
-    StatusSelect.addEventListener("change", () => {
-        const sortValue = StatusSelect.value;
-
-        
-                if (sortValue === "Terminado") {
-                    // Ordenar de "Fácil" a "Intermedio" a "Difícil"
-                  
-                    return -1;
-                } else if (sortValue === "No terminado") {
-                    // Ordenar de "Difícil" a "Intermedio" a "Fácil"
-                    
-                    return 0;
-                }
-         
-            renderCatalogs(catalogData);
-        
-    });
+  
     // Mostrar el formulario de creación de kata al hacer clic en el botón
     createKataButton.addEventListener("click", () => {
         catalogContainer.innerHTML = '';

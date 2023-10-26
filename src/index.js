@@ -84,7 +84,20 @@ class CatalogList{
             } else if (order === "desc") {
                 dataToSort.sort((a, b) => b.Title.localeCompare(a.Title));
             }
+        
         }
+        FiltrarStatus(estado) {
+            const dataToSort2 = this.displayedCatalogs.length > 0 ? this.displayedCatalogs : this.catalogData;
+            if (estado === "Terminado") {
+                dataToSort2.sort((a, b) => b.status.localeCompare(a.status));
+            
+            } else if (estado === "No Terminado") {
+                dataToSort2.sort((a, b) => a.status.localeCompare(b.status));
+                
+            }
+        
+        }
+        
   }
 export default CatalogList;
     
