@@ -71,6 +71,9 @@ window.onload = () => {
 
             renderCatalogs(catalogData);
         }
+        createKataButton.addEventListener("click", () => {
+          createKataForm.style.display = "block";
+        });
     });
      // Guardar un nuevo kata
      saveKataButton.addEventListener("click", () => {
