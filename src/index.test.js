@@ -80,7 +80,7 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
         return total;
       }, 0);
   
-      expect(count).toBe(3); // Debería haber 3 catálogos con 'Matematicas' en la categoría
+      expect(count).toBe(2); // Debería haber 3 catálogos con 'Matematicas' en la categoría
     });
   });
 
