@@ -60,8 +60,13 @@ window.onload = () => {
                     if (a.Difficulty < b.Difficulty) return -1;
                     if (a.Difficulty > b.Difficulty) return 1;
                     return 0;
-
+                } else if (sortValue === "desc") {
+                    // Ordenar de "Difícil" a "Fácil" o viceversa
+                    if (a.Difficulty > b.Difficulty) return -1;
+                    if (a.Difficulty < b.Difficulty) return 1;
+                    return 0;
                 }
+
             });
 
             renderCatalogs(catalogData);
