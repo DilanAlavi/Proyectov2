@@ -89,14 +89,18 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
   });
   describe("buscar POr estado", () => {
     it("debería lanzar un mensaje de error si no se encuentran resultados", () => {
-      const busqueda="Terminado";
-      expect(BuscarPorEstado(busqueda)).toBe("Terminado");
+      const busqueda="NoTerminado";
+      expect(BuscarPorEstado(busqueda)).toBe("NoTerminado");
     });
   });
 function BuscarPorEstado(Estadooo){
   if(Estadooo==="Terminado")
   {
     return Estadooo;
+
+  }
+  else {
+    return "Noterminado"
 
   }
 
