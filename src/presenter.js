@@ -7,6 +7,7 @@ const catalogTemplate = document.getElementById("catalog-template");
 const searchButton = document.getElementById("search-button");
 const searchInput = document.getElementById("search-input");
 const sortSelect = document.getElementById("sort-select");
+const sortDifficultySelect = document.getElementById("sort-difficulty"); // Nuevo select
 
 // Función para renderizar la lista de catálogos
 function renderCatalogs(catalogs) {
@@ -45,6 +46,24 @@ window.onload = () => {
 
         if (sortValue === "asc" || sortValue === "desc") {
             catalogListInstance.OrdenarCatalogs(sortValue);
+            renderCatalogs(catalogData);
+        }
+    });
+     // Nuevo evento para ordenar por dificultad
+     sortDifficultySelect.addEventListener("change", () => {
+        const sortValue = sortDifficultySelect.value;
+
+        if (sortValue === "asc" || sortValue === "desc") {
+            catalogData.sort((a, b) => {
+                if (sortValue === "asc") {
+                    // Ordenar de "Fácil" a "Difícil" o viceversa
+                    if (a.Difficulty < b.Difficulty) return -1;
+                    if (a.Difficulty > b.Difficulty) return 1;
+                    return 0;
+
+                }
+            });
+
             renderCatalogs(catalogData);
         }
     });
