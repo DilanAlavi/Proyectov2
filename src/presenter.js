@@ -21,6 +21,7 @@ function renderCatalogs(catalogs) {
         catalogClone.querySelector('.Difficulty').textContent = catalog.Difficulty;
         catalogClone.querySelector('.Category').textContent = catalog.Category;
         catalogClone.querySelector('.Type').textContent = catalog.Type;
+        catalogClone.querySelector('.Estado').textContent = catalog.Estado;
 
         // Botón de Editar
         const editButton = catalogClone.querySelector('.edit-button');
@@ -31,6 +32,7 @@ function renderCatalogs(catalogs) {
             document.getElementById("kata-difficulty").value = catalog.Difficulty;
             document.getElementById("kata-category").value = catalog.Category;
             document.getElementById("kata-type").value = catalog.Type;
+            document.getElementById("kata-estado").value = catalog.Estado;
 
             // Mostrar el formulario para editar
             createKataForm.style.display = "block";
@@ -119,13 +121,15 @@ window.onload = () => {
         const difficulty = document.getElementById("kata-difficulty").value;
         const category = document.getElementById("kata-category").value;
         const type = document.getElementById("kata-type").value;
+        const estado = document.getElementById("kata-estado").value;
 
         const newKata = {
             Title: title,
             Description: description,
             Difficulty: difficulty,
             Category: category,
-            Type: type
+            Type: type,
+            Estado: Estado
         };
 // Obtener el índice del ejercicio que se está editando (si está en modo edición)
         const editIndex = createKataForm.dataset.editIndex;
