@@ -27,15 +27,22 @@
     <!-- Botón para crear un nuevo kata -->
     <button id="create-kata-button">Crear Nuevo Kata</button>
 
-    <!-- Formulario para crear un nuevo kata (inicialmente oculto) -->
     <div id="create-kata-form" style="display: none;">
         <input type="text" id="kata-title" placeholder="Título">
         <textarea id="kata-description" placeholder="Descripción"></textarea>
-        <input type="text" id="kata-difficulty" placeholder="Dificultad">
+        <select id="kata-difficulty">
+            <option value="Facil">Fácil</option>
+            <option value="Intermedia">Intermedia</option>
+            <option value="Dificil">Difícil</option>
+        </select>
         <input type="text" id="kata-category" placeholder="Categoría">
-        <input type="text" id="kata-type" placeholder="Tipo">
+        <select id="kata-type">
+            <option value="Ejercicio">Ejercicio</option>
+            <option value="Ejemplo">Ejemplo</option>
+        </select>
         <button id="save-kata-button">Guardar Kata</button>
     </div>
+    
 
     <div id="catalog-container">
         <template id="catalog-template">
