@@ -12,38 +12,48 @@ const createKataForm = document.getElementById("create-kata-form");
 const saveKataButton = document.getElementById("save-kata-button");
 const sortDifficultySelect = document.getElementById("sort-difficulty");
 
-// Función para renderizar la lista de catálogos
 function renderCatalogs(catalogs) {
     catalogContainer.innerHTML = '';
-    catalogs.forEach(catalog => {
+    catalogs.forEach((catalog, index) => { // Añade el parámetro 'index'
         const catalogClone = document.importNode(catalogTemplate.content, true);
         catalogClone.querySelector('.Title').textContent = catalog.Title;
         catalogClone.querySelector('.Description').textContent = catalog.Description;
         catalogClone.querySelector('.Difficulty').textContent = catalog.Difficulty;
         catalogClone.querySelector('.Category').textContent = catalog.Category;
         catalogClone.querySelector('.Type').textContent = catalog.Type;
-          // Botón de Editar
-          const editButton = catalogClone.querySelector('.edit-button');
-          editButton.addEventListener("click", () => {
-              // Rellenar el formulario con los datos del ejercicio para editar
-              document.getElementById("kata-title").value = catalog.Title;
-              document.getElementById("kata-description").value = catalog.Description;
-              document.getElementById("kata-difficulty").value = catalog.Difficulty;
-              document.getElementById("kata-category").value = catalog.Category;
-              document.getElementById("kata-type").value = catalog.Type;
-  
-              // Mostrar el formulario para editar
-              createKataForm.style.display = "block";
-              createKataButton.style.display = "none"; // Ocultar el botón de creación durante la edición
-  
-              // Guardar el índice del ejercicio que se está editando
-              createKataForm.dataset.editIndex = index;
-          });
 
-  
-          catalogContainer.appendChild(catalogClone);
-      });
-  }
+        // Botón de Editar
+        const editButton = catalogClone.querySelector('.edit-button');
+        editButton.addEventListener("click", () => {
+            // Rellenar el formulario con los datos del ejercicio para editar
+            document.getElementById("kata-title").value = catalog.Title;
+            document.getElementById("kata-description").value = catalog.Description;
+            document.getElementById("kata-difficulty").value = catalog.Difficulty;
+            document.getElementById("kata-category").value = catalog.Category;
+            document.getElementById("kata-type").value = catalog.Type;
+
+            // Mostrar el formulario para editar
+            createKataForm.style.display = "block";
+            createKataButton.style.display = "none"; // Ocultar el botón de creación durante la edición
+
+            // Guardar el índice del ejercicio que se está editando
+            createKataForm.dataset.editIndex = index;
+        });
+
+        // Botón de Eliminar
+        const deleteButton = catalogClone.querySelector('.delete-button');
+        deleteButton.addEventListener("click", () => {
+            // Obtener el índice del ejercicio en el catálogo y luego eliminarlo
+            const exerciseIndex = index;
+            catalogData.splice(exerciseIndex, 1);
+            // Renderizar el catálogo actualizado
+            renderCatalogs(catalogData);
+        });
+
+        catalogContainer.appendChild(catalogClone);
+    });
+}
+
 
 
 window.onload = () => {
