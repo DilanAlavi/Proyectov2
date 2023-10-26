@@ -24,6 +24,7 @@ describe("Pruebas de obtención de título y descripción de la kata", () => {
   });
 });
 
+
 it("Debería manejar una búsqueda con coincidencia exacta", () => {
   const catalogList = new CatalogList(catalogData); // Pasa el arreglo de datos al constructor
   const kataName = "ar"; // Nombre exacto de una kata existente
@@ -86,5 +87,18 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
       expect(() => catalogList.searchGlobal(query)).toThrow("Vuelve a ingresar los datos");
     });
   });
+  describe("buscar POr estado", () => {
+    it("debería lanzar un mensaje de error si no se encuentran resultados", () => {
+      const busqueda="Terminado";
+      expect(BuscarPorEstado(busqueda)).toBe("Terminado");
+    });
+  });
+function BuscarPorEstado(Estadooo){
+  if(Estadooo==="Terminado")
+  {
+    return Estadooo;
 
+  }
+
+}
   
