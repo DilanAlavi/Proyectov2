@@ -106,7 +106,7 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
   });
   it("Debería manejar una búsqueda con coincidencia exacta", () => {
     const catalogList = new CatalogList(catalogData); // Pasa el arreglo de datos al constructor
-    const kataName = "Terminado"; // Nombre exacto de una kata existente
+    const kataName = "No terminado"; // Nombre exacto de una kata existente
   
   
     const resultado = catalogList.searchGlobalEstadoEstado(kataName);
