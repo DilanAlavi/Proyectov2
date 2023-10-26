@@ -11,6 +11,7 @@ const createKataButton = document.getElementById("create-kata-button");
 const createKataForm = document.getElementById("create-kata-form");
 const saveKataButton = document.getElementById("save-kata-button");
 const sortDifficultySelect = document.getElementById("sort-difficulty");
+const StatusSelect = document.getElementById("status");
 
 function renderCatalogs(catalogs) {
     catalogContainer.innerHTML = '';
@@ -105,7 +106,23 @@ window.onload = () => {
             renderCatalogs(catalogData);
         }
     });
+    StatusSelect.addEventListener("change", () => {
+        const sortValue = StatusSelect.value;
 
+        
+                if (sortValue === "Terminado") {
+                    // Ordenar de "Fácil" a "Intermedio" a "Difícil"
+                  
+                    return -1;
+                } else if (sortValue === "No terminado") {
+                    // Ordenar de "Difícil" a "Intermedio" a "Fácil"
+                    
+                    return 0;
+                }
+         
+            renderCatalogs(catalogData);
+        
+    });
     // Mostrar el formulario de creación de kata al hacer clic en el botón
     createKataButton.addEventListener("click", () => {
         catalogContainer.innerHTML = '';

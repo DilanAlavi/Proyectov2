@@ -10,7 +10,8 @@ class CatalogList{
                 description: catalog.Description,
                 difficulty: catalog.Difficulty,
                 category: catalog.Category,
-                type: catalog.Type
+                type: catalog.Type,
+                status: catalog.status
             };
         });
     }
@@ -26,6 +27,7 @@ class CatalogList{
             catalogClone.querySelector('.Difficulty').textContent = catalog.Difficulty;
             catalogClone.querySelector('.Category').textContent = catalog.Category;
             catalogClone.querySelector('.Type').textContent = catalog.Type;
+            catalogClone.querySelector('.status').textContent = catalog.status;
             catalogContainer.appendChild(catalogClone);
         });
     }
@@ -44,6 +46,7 @@ class CatalogList{
             catalogClone.querySelector('.Difficulty').textContent = catalog.Difficulty;
             catalogClone.querySelector('.Category').textContent = catalog.Category;
             catalogClone.querySelector('.Type').textContent = catalog.Type;
+            catalogClone.querySelector('.status').textContent = catalog.status;
             catalogContainer.appendChild(catalogClone);
         });
     }
@@ -64,8 +67,9 @@ class CatalogList{
           const difficulty = catalog.Difficulty.toLowerCase();//Agregamos Dificultad
           const Type= catalog.Type.toLowerCase();//Agregamos el Tipo de 
           const Categoria=catalog.Category.toLowerCase();
+          const Status=catalog.status.toLowerCase();
 
-          return title.includes(searchQuery) || description.includes(searchQuery)||difficulty.includes(searchQuery)||Type.includes(searchQuery)||Categoria.includes(searchQuery);        });
+          return title.includes(searchQuery) || description.includes(searchQuery)||difficulty.includes(searchQuery)||Type.includes(searchQuery)||Categoria.includes(searchQuery)||Status.includes(searchQuery);        });
           if (filteredCatalogs.length === 0) {
             throw new Error("No se encontraron resultados");
           }
