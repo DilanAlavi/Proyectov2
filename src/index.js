@@ -73,6 +73,14 @@ class CatalogList{
           // Devuelve el resultado de la búsqueda
           return filteredCatalogs;
          }
+         OrdenarCatalogs(order) {
+            const dataToSort = this.displayedCatalogs.length > 0 ? this.displayedCatalogs : this.catalogData;
+            if (order === "asc") {
+                dataToSort.sort((a, b) => a.Title.localeCompare(b.Title));
+            } else if (order === "desc") {
+                dataToSort.sort((a, b) => b.Title.localeCompare(a.Title));
+            }
+        }
   }
 export default CatalogList;
     

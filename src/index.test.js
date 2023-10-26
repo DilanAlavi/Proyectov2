@@ -87,26 +87,4 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
     });
   });
 
-  describe('ordenarPalabras', () => {
-    it('debería ordenar las palabras alfabéticamente', () => {
-        const palabras = ["Quimica", "Fisica"];
-        const resultadoEsperado = "Fisica Quimica";
   
-        const resultado = ordenarPalabras(palabras);
-  
-        // Verifica que el resultado sea igual al resultado esperado
-        expect(resultado).toEqual(resultadoEsperado);
-    });
-  });
-  function ordenarPalabras(palabras) {
-    // Clonar el array para evitar modificar el original
-    const palabrasOrdenadas = [...palabras];
-  
-    // Utilizar el método sort para ordenar alfabéticamente
-    palabrasOrdenadas.sort();
-  
-    // Convertir el array ordenado en una cadena de texto separada por espacios
-    const resultado = palabrasOrdenadas.join(' ');
-  
-    return resultado;
-  }
