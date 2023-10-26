@@ -33,6 +33,7 @@ function renderCatalogs(catalogs) {
             document.getElementById("kata-difficulty").value = catalog.Difficulty;
             document.getElementById("kata-category").value = catalog.Category;
             document.getElementById("kata-type").value = catalog.Type;
+            document.getElementById("kata-status").value = catalog.status;
             catalogClone.querySelector("kata-type").textContent = catalog.status;
 
             // Mostrar el formulario para editar
@@ -138,7 +139,7 @@ window.onload = () => {
             Difficulty: difficulty,
             Category: category,
             Type: type,
-            status : status
+            status: status
         };
 // Obtener el índice del ejercicio que se está editando (si está en modo edición)
         const editIndex = createKataForm.dataset.editIndex;
