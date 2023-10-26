@@ -4,7 +4,7 @@ body {
     background-color: #f2f2f2;
     margin: 0;
     padding: 0;
-   
+    text-align: center;
 }
 
 /* Estilo para el encabezado h1 */
@@ -44,5 +44,100 @@ h1 {
 }
 
 #search-button:hover {
+    background-color: #555;
+}
+
+/* Estilo para los filtros de ordenamiento */
+label {
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+/* Estilo para los select de ordenamiento */
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* Estilo para el contenedor de catálogos */
+#catalog-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 20px;
+    justify-items: center;
+}
+
+/* Estilo para el catálogo individual */
+.catalog-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    margin: 10px;
+    margin-left: auto; /* Centra horizontalmente en toda la pantalla */
+    margin-right: auto; /* Centra horizontalmente en toda la pantalla */
+    max-width: 80%; /* Limita el ancho para mantener la legibilidad */
+}
+
+/* Aplica el cambio de color al pasar el mouse sobre el catálogo */
+.catalog-item:hover {
+    background-color: #e5e5e5; /* Cambia el color al pasar el mouse */
+    transform: translateY(-5px);
+}
+
+/* Estilo para los elementos del catálogo (título, descripción, etc.) */
+.catalog-item .Title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.catalog-item .Description {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+}
+
+.catalog-item .Difficulty {
+    font-size: 12px;
+    font-style: italic;
+    color: #888;
+    margin-top: 5px;
+}
+
+.catalog-item .Category {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+}
+
+.catalog-item .Type {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* Estilo para el botón de detalles */
+.catalog-item button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.catalog-item button:hover {
     background-color: #555;
 }
