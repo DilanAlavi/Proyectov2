@@ -65,8 +65,9 @@ class CatalogList{
           const difficulty = catalog.Difficulty.toLowerCase();//Agregamos Dificultad
           const Type= catalog.Type.toLowerCase();//Agregamos el Tipo de 
           const Categoria=catalog.Category.toLowerCase();
+          const Estado=catalog.Estado.toLowerCase();
 
-          return title.includes(searchQuery) || description.includes(searchQuery)||difficulty.includes(searchQuery)||Type.includes(searchQuery)||Categoria.includes(searchQuery);        });
+          return title.includes(searchQuery) || description.includes(searchQuery)||difficulty.includes(searchQuery)||Type.includes(searchQuery)||Categoria.includes(searchQuery)||Estado.includes(searchQuery);        });
           if (filteredCatalogs.length === 0) {
             throw new Error("No se encontraron resultados");
           }
@@ -82,22 +83,6 @@ class CatalogList{
                 dataToSort.sort((a, b) => b.Title.localeCompare(a.Title));
             }
         }
-        searchGlobalEstadoEstado(query) {
-        // Convierte la consulta a minúsculas
-        const searchQuery = query.toLowerCase();
-        // Filtra los catálogos que coinciden con el título o descripción
-        const filteredCatalogs = this.catalogData.filter(catalog => {
-          const title = catalog.Title.toLowerCase();
-          const description = catalog.Description.toLowerCase();
-          const difficulty = catalog.Difficulty.toLowerCase();//Agregamos Dificultad
-          const Type= catalog.Type.toLowerCase();//Agregamos el Tipo de 
-          const Categoria=catalog.Category.toLowerCase();
-
-          return title.includes(searchQuery) || description.includes(searchQuery)||difficulty.includes(searchQuery)||Type.includes(searchQuery)||Categoria.includes(searchQuery);    
-          
-         }); 
-        }
-        
         
   }
 export default CatalogList;

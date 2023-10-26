@@ -109,7 +109,7 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
     const kataName = "No terminado"; // Nombre exacto de una kata existente
   
   
-    const resultado = catalogList.searchGlobalEstadoEstado(kataName);
+    const resultado = catalogList.searchGlobal(kataName);
   
     // Verifica que el resultado sea igual al objeto de la kata
     const kataEsperada = [
