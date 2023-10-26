@@ -98,11 +98,47 @@ it("Debería manejar una búsqueda con coincidencia exacta", () => {
   
       // Recorre todos los catálogos en catalogData
       catalogData.forEach((catalog, index) => {
-        // Verifica que el título en catalogItems coincida con el título en catalogData
+        // Verifica que el Estado en catalogItems coincida con el Estado en catalogData
         expect(catalogItems[index].estado).toEqual(catalog.Estado);
   
       });
     });
   });
-
+  it("Debería manejar una búsqueda con coincidencia exacta", () => {
+    const catalogList = new CatalogList(catalogData); // Pasa el arreglo de datos al constructor
+    const kataName = "Terminado"; // Nombre exacto de una kata existente
+  
+  
+    const resultado = catalogList.searchGlobalEstadoEstado(kataName);
+  
+    // Verifica que el resultado sea igual al objeto de la kata
+    const kataEsperada = [
+      {
+        Title: "CalcularMCD",
+        Description: "Kata para calcular el Máximo Común Divisor (MCD) de dos números.",
+        Difficulty: "Facil",
+        Category: "Numeros, Matematicas, Ejercicios matematicos",
+        Type: "Ejemplo",
+        Estado: "Terminado"
+    },
+    {
+        Title: "Ordenar Arreglos",
+        Description: "Kata para ordenar un arreglo de números en orden ascendente.",
+        Difficulty: "Intermedio",
+        Category: "Matematicas",
+        Type: "Ejercicio",
+        Estado: "No terminado"
+  
+    },
+    {
+        Title: "Encontrar Ciclos en un Grafo",
+        Description: "Kata para encontrar ciclos en un grafo no dirigido.",
+        Difficulty: "Difícil",
+        Category: "Matematicas, estrucura",
+        Type: "Ejercicio",
+        Estado: "Terminada"
+        
+    }
+  ];
+  });
 
