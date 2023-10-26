@@ -72,4 +72,29 @@ window.onload = () => {
             renderCatalogs(catalogData);
         }
     });
+     // Guardar un nuevo kata
+     saveKataButton.addEventListener("click", () => {
+      const title = document.getElementById("kata-title").value;
+      const description = document.getElementById("kata-description").value;
+      const difficulty = document.getElementById("kata-difficulty").value;
+      const category = document.getElementById("kata-category").value;
+      const type = document.getElementById("kata-type").value;
+
+      const newKata = {
+          Title: title,
+          Description: description,
+          Difficulty: difficulty,
+          Category: category,
+          Type: type
+      };
+
+      // Agregar el nuevo kata al catálogo de datos (catalogData)
+      catalogData.push(newKata);
+
+      // Limpiar el formulario y ocultarlo
+      createKataForm.style.display = "none";
+
+      // Renderizar el catálogo actualizado
+      renderCatalogs(catalogData);
+  });
 };
