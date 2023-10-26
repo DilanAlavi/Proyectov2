@@ -34,7 +34,7 @@ h1 {
 }
 
 /* Estilo para el botón de búsqueda */
-#search-button {
+#search-button,#create-kata-button {
     padding: 10px 20px;
     background-color: #333;
     color: #fff;
@@ -139,5 +139,51 @@ select {
 }
 
 .catalog-item button:hover {
+    background-color: #555;
+}
+/* Estilo para el contenedor del formulario */
+#create-kata-form {
+    display: none; /* Inicialmente oculto */
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los campos de entrada de texto y textarea */
+#kata-title, #kata-description, #kata-category {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo para los select */
+#kata-difficulty, #kata-type {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Estilo para el botón "Guardar Kata" */
+#save-kata-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#save-kata-button:hover {
     background-color: #555;
 }
