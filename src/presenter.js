@@ -22,9 +22,29 @@ function renderCatalogs(catalogs) {
         catalogClone.querySelector('.Difficulty').textContent = catalog.Difficulty;
         catalogClone.querySelector('.Category').textContent = catalog.Category;
         catalogClone.querySelector('.Type').textContent = catalog.Type;
-        catalogContainer.appendChild(catalogClone);
-    });
-}
+          // Botón de Editar
+          const editButton = catalogClone.querySelector('.edit-button');
+          editButton.addEventListener("click", () => {
+              // Rellenar el formulario con los datos del ejercicio para editar
+              document.getElementById("kata-title").value = catalog.Title;
+              document.getElementById("kata-description").value = catalog.Description;
+              document.getElementById("kata-difficulty").value = catalog.Difficulty;
+              document.getElementById("kata-category").value = catalog.Category;
+              document.getElementById("kata-type").value = catalog.Type;
+  
+              // Mostrar el formulario para editar
+              createKataForm.style.display = "block";
+              createKataButton.style.display = "none"; // Ocultar el botón de creación durante la edición
+  
+              // Guardar el índice del ejercicio que se está editando
+              createKataForm.dataset.editIndex = index;
+          });
+
+  
+          catalogContainer.appendChild(catalogClone);
+      });
+  }
+
 
 window.onload = () => {
     catalogListInstance.renderCatalogsToContainer();
@@ -97,9 +117,16 @@ window.onload = () => {
             Category: category,
             Type: type
         };
+// Obtener el índice del ejercicio que se está editando (si está en modo edición)
+        const editIndex = createKataForm.dataset.editIndex;
+        if (editIndex !== undefined) {
+            // Actualizar el ejercicio existente en el catálogo
+            catalogData[editIndex] = newKata;
+        } else {
+            // Agregar el nuevo kata al catálogo de datos (catalogData)
+            catalogData.push(newKata);
+        }
 
-        // Agregar el nuevo kata al catálogo de datos (catalogData)
-        catalogData.push(newKata);
 
         // Limpiar el formulario y ocultarlo
         createKataForm.style.display = "none";
