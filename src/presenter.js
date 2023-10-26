@@ -11,6 +11,7 @@ const createKataButton = document.getElementById("create-kata-button");
 const createKataForm = document.getElementById("create-kata-form");
 const saveKataButton = document.getElementById("save-kata-button");
 const sortDifficultySelect = document.getElementById("sort-difficulty");
+//estado
 
 function renderCatalogs(catalogs) {
     catalogContainer.innerHTML = '';
