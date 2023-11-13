@@ -33,3 +33,13 @@ describe('Cargar Katas', () => {
       cy.get('.catalog-item').contains('Nueva Kata');
     });
   });
+  describe('Eliminar Kata', () => {
+    it('debería eliminar una Kata existente', () => {
+      cy.visit('index.html');
+      // Encuentra y hace clic en el botón de eliminar de la primera Kata
+      cy.get('.catalog-item').first().find('.delete-button').click();
+  
+      // Verifica que la Kata eliminada no se muestre en el contenedor de Katas
+      cy.get('.catalog-item').should('not.contain', 'Kata Editada');
+    });
+  });
