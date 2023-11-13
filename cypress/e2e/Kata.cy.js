@@ -16,3 +16,20 @@ describe('Cargar Katas', () => {
       cy.get('.catalog-item').contains('Kata Editada');
     });
   });
+  describe('Crear Nueva Kata', () => {
+    it('debería crear una nueva Kata', () => {
+      cy.visit('index.html');
+      cy.get('#create-kata-button').click();
+  
+      // Completa el formulario de creación de Kata
+      cy.get('#kata-title').type('Nueva Kata');
+      cy.get('#kata-description').type('Descripción de la nueva Kata');
+      cy.get('#kata-difficulty').select('Facil');
+      cy.get('#kata-category').type('Nueva Categoría');
+      cy.get('#kata-type').select('Ejercicio');
+      cy.get('#save-kata-button').click();
+  
+      // Verifica que la nueva Kata se muestre en el contenedor de Katas
+      cy.get('.catalog-item').contains('Nueva Kata');
+    });
+  });
