@@ -7,4 +7,13 @@ describe('Pruebas de Ordenamiento por titulo', () => {
       cy.get('.catalog-item:first').should('exist');
       cy.get('.catalog-item:first .Title').should('have.text', 'CalcularMCD');
     });
+    it('Ordena catálogos en orden descendente', () => {
+        cy.visit("index.html")
+        cy.get('#sort-select').select('desc');
+        cy.get('#sort-select').should('have.value', 'desc');
+        // Espera a que el primer elemento .catalog-item esté presente
+        cy.get('.catalog-item:first').should('exist');
+        cy.get('.catalog-item:first .Title').should('have.text', 'Ordenar Arreglos');
+      });
   });
+  
