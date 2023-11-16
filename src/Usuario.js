@@ -1,6 +1,25 @@
-export function crearUsuario(nombre, correo, contraseña) {
-    return "Usuario Registrado con Exito";
+
+export function RegistroDeUsuario(userData, newUser) {
+    try {
+        if (!newUser.username || !newUser.password) {
+            throw new Error("Por favor, complete todos los campos.");
+        }
+        const usuariosFiltrados = FiltrarUsuarios(userData, newUser);
+        AgregarUsuario(userData, newUser, usuariosFiltrados);
+        
+        // Buscar al usuario recién registrado para obtener su información
+        const usuarioEncontrado = BuscarUsuario(userData, newUser);
+
+        // Almacena la información del usuario en localStorage
+        localStorage.setItem('usuarioActual', JSON.stringify(usuarioEncontrado));
+
+        alert("Usuario registrado con éxito");
+        window.location.href = 'index.html';
+    } catch (error) {
+        alert(error.message);
+    }
 }
+
 export function FiltrarUsuarios(userData, newUser) {
     const { username } = newUser;
     return userData.filter(usuario => usuario.username === username);
