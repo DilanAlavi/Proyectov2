@@ -19,3 +19,11 @@ test('AgregarUsuario debería agregar un nuevo usuario si no está en uso', () =
   AgregarUsuario(mockUserDataCopy, mockNewUser, []);
   expect(mockUserDataCopy).toEqual([...mockUserData, mockNewUser]);
 });
+test('AgregarUsuario debería lanzar un error si el nombre de usuario ya está en uso', () => {
+    const mockUserDataCopy = [...mockUserData];
+    const mockNewUser = { username: 'usuario1', password: 'nuevaClave' };
+    expect(() => AgregarUsuario(mockUserDataCopy, mockNewUser, mockUserData)).toThrowError(
+      'El nombre de usuario ya está en uso.'
+    );
+
+  });
