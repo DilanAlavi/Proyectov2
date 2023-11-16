@@ -13,3 +13,9 @@ test('FiltrarUsuarios debería devolver un array filtrado correctamente', () => 
     const result = FiltrarUsuarios(mockUserData, mockNewUser);
     expect(result).toEqual([{ username: 'usuario1', password: 'clave1' }]);
   });
+test('AgregarUsuario debería agregar un nuevo usuario si no está en uso', () => {
+  const mockUserDataCopy = [...mockUserData];
+  const mockNewUser = { username: 'nuevoUsuario', password: 'nuevaClave' };
+  AgregarUsuario(mockUserDataCopy, mockNewUser, []);
+  expect(mockUserDataCopy).toEqual([...mockUserData, mockNewUser]);
+});
