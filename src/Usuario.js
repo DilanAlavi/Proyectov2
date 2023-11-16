@@ -1,4 +1,3 @@
-
 export function RegistroDeUsuario(userData, newUser) {
     try {
         if (!newUser.username || !newUser.password) {
@@ -19,11 +18,11 @@ export function RegistroDeUsuario(userData, newUser) {
         alert(error.message);
     }
 }
-
 export function FiltrarUsuarios(userData, newUser) {
     const { username } = newUser;
     return userData.filter(usuario => usuario.username === username);
 }
+
 export function AgregarUsuario(userData, newUser, usuariosFiltrados) {
     if (usuariosFiltrados.length > 0) {
         throw new Error("El nombre de usuario ya está en uso.");
@@ -31,12 +30,12 @@ export function AgregarUsuario(userData, newUser, usuariosFiltrados) {
         userData.push(newUser);
     }
 }
-export function BuscarUsuario(userData, credentials) {
-    const { username, password } = credentials;
-    return userData.find(usuario => usuario.username === username && usuario.password === password);
-}
 export function validarCredenciales(credentials) {
     if (!credentials.username || !credentials.password) {
         throw new Error("Por favor, complete todos los campos.");
     }
+}
+export function BuscarUsuario(userData, credentials) {
+    const { username, password } = credentials;
+    return userData.find(usuario => usuario.username === username && usuario.password === password);
 }
