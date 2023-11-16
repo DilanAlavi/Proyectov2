@@ -1,5 +1,5 @@
 import { BusquedaGlobal} from '../src/Busqueda.js';
-import catalogData from '../src/catalogData.js'; // Importa el arreglo de datos
+import catalogData from '../Data/catalogData.js'; // Importa el arreglo de datos
 // Prueba para una consulta que no encuentra resultados
 test('BusquedaGlobal no encuentra resultados', () => {
     expect(() => BusquedaGlobal(catalogData, "Inexistente")).toThrow("No se encontraron resultados"); // Debería lanzar una excepción

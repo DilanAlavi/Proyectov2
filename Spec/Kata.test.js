@@ -1,5 +1,5 @@
 import CatalogList from '../src/Kata.js';
-import catalogData from '../src/catalogData.js'; // Importa el arreglo de datos
+import catalogData from '../Data/catalogData.js'; // Importa el arreglo de datos
 
 describe("Pruebas de obtención de título y descripción de la kata", () => {
   it("Verifica si los títulos coinciden con los valores en catalogData", () => {

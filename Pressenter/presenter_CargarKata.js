@@ -1,4 +1,4 @@
-import catalogData from '../src/catalogData.js';
+import catalogData from '../Data/catalogData.js';
 
 
 const catalogContainer = document.getElementById("catalog-container");

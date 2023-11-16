@@ -1,6 +1,6 @@
 import { BusquedaGlobal } from '../src/Busqueda.js';
 import { CargarKata } from './presenter_CargarKata.js';
-import catalogData from '../src/catalogData.js';
+import catalogData from '../Data/catalogData.js';
 
 
 const searchInput = document.getElementById("search-input");

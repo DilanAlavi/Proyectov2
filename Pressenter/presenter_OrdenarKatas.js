@@ -1,7 +1,7 @@
 import { CargarKata } from './presenter_CargarKata.js';
 import { OrdenarCatalogsPorDificultad } from "../src/OrdenarKatas";
 import {OrdenarCatalogs} from '../src/OrdenarKatas.js';
-import catalogData from '../src/catalogData.js';
+import catalogData from '../Data/catalogData.js';
 
 const sortDifficultySelect = document.getElementById("sort-difficulty");
 const sortSelect = document.getElementById("sort-select");
