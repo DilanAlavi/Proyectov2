@@ -12,3 +12,7 @@ export function AgregarUsuario(userData, newUser, usuariosFiltrados) {
         userData.push(newUser);
     }
 }
+export function BuscarUsuario(userData, credentials) {
+    const { username, password } = credentials;
+    return userData.find(usuario => usuario.username === username && usuario.password === password);
+}
