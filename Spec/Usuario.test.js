@@ -1,5 +1,5 @@
 // Usuario.test.js
-import { crearUsuario,FiltrarUsuarios, AgregarUsuario, BuscarUsuario } from "../src/Usuario";
+import { crearUsuario,FiltrarUsuarios, AgregarUsuario, BuscarUsuario,validarCredenciales } from "../src/Usuario";
 const mockUserData = [
     { username: 'usuario1', password: 'clave1' },
     { username: 'usuario2', password: 'clave2' },
@@ -31,4 +31,11 @@ test('AgregarUsuario debería lanzar un error si el nombre de usuario ya está e
     const mockCredentials = { username: 'usuario1', password: 'clave1' };
     const result = BuscarUsuario(mockUserData, mockCredentials);
     expect(result).toEqual({ username: 'usuario1', password: 'clave1' });
+  }); 
+
+  test('validarCredenciales debería lanzar un error si no se completan todos los campos', () => {
+    const mockCredentials = { username: 'usuario1' };
+    expect(() => validarCredenciales(mockCredentials)).toThrowError(
+      'Por favor, complete todos los campos.'
+    );
   }); 

@@ -16,3 +16,8 @@ export function BuscarUsuario(userData, credentials) {
     const { username, password } = credentials;
     return userData.find(usuario => usuario.username === username && usuario.password === password);
 }
+export function validarCredenciales(credentials) {
+    if (!credentials.username || !credentials.password) {
+        throw new Error("Por favor, complete todos los campos.");
+    }
+}
