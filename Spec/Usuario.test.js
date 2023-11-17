@@ -1,5 +1,5 @@
 // Usuario.test.js
-import {LogginUsuario ,FiltrarUsuarios, AgregarUsuario, BuscarUsuario, RegistroDeUsuario, validarCredenciales, IniciarSesion } from '../src/Usuario.js';
+import {FiltrarUsuarios, AgregarUsuario, BuscarUsuario, RegistroDeUsuario, validarCredenciales, IniciarSesion } from '../src/Usuario.js';
 const mockUserData = [
     { username: 'usuario1', password: 'clave1' },
     { username: 'usuario2', password: 'clave2' },
@@ -58,29 +58,37 @@ const mockUserData = [
     const result = BuscarUsuario(mockUserData, mockCredentials);
     expect(result).toEqual({ username: 'usuario1', password: 'clave1' });
   }); 
-  describe('Pruebas de inicio de sesión', () => {
-    test('Debería hacer el Loggin de datos correctamente', () => {
-      const Nombre = "Anonimo1";
-      const password = "1234";
-      const resultado = LogginUsuario(Nombre, password);
-      expect(resultado).toBe("Bienvenido");
-    });
-});
-describe('Deberia mandar mensaje de error de Inicio de Sesion', () => {
-  test('Deberia retornar un mensaje', () => {
-    const Nombre = "Anonimo1";
-    const password = "124";
-    const resultado = LogginUsuario(Nombre, password);
-    expect(resultado).toBe("Ingrese los Datos Nuevamente");
+  test('Inicio de Sesion debería registrar un nuevo usuario con éxito', () => {
+    const mockNewUser = { username: 'usuario1', password: 'clave1' };
+    const localStorageMock = mockLocalStorage();
+    const alertMock = mockAlert();
+    global.localStorage = localStorageMock;
+    global.alert = alertMock;
+    IniciarSesion(mockUserData, mockNewUser);
+    expect(localStorageMock.setItem).toHaveBeenCalledWith('usuarioActual', JSON.stringify(mockNewUser));
+    expect(alertMock).toHaveBeenCalledWith('Inicio de sesión exitoso');
   });
-});
 
 
-  function mockLocalStorage() {
-    return {
-      setItem: jest.fn(),
-    };
-  }
-  function mockAlert() {
-    return jest.fn();
-  }
+
+
+
+
+
+
+
+
+
+
+ // Función para simular el localStorage con un método setItem que rastrea las llamadas
+function mockLocalStorage() {
+  return {
+    setItem: jest.fn(), // jest.fn() crea una función simulada que rastrea las llamadas
+  };
+}
+
+// Función para simular la función alert sin realizar ninguna acción
+function mockAlert() {
+  return jest.fn(); // jest.fn() crea una función simulada que no hace nada
+}
+

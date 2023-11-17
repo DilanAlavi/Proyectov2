@@ -40,13 +40,20 @@ export function BuscarUsuario(userData, credentials) {
     return userData.find(usuario => usuario.username === username && usuario.password === password);
 }
 
-export function LogginUsuario(nombre, password)
-{
-    if (nombre=="Anonimo1"&&password=="1234")
-    {
-        return "Bienvenido";
-    }
-    else{
-        return "Ingrese los Datos Nuevamente";
+export function IniciarSesion(userData, credentials) {
+    try {
+        validarCredenciales(credentials);
+        const usuarioEncontrado = BuscarUsuario(userData, credentials);
+
+        if (usuarioEncontrado) {
+            // Almacena la información del usuario en localStorage
+            localStorage.setItem('usuarioActual', JSON.stringify(usuarioEncontrado));
+            alert("Inicio de sesión exitoso");
+            window.location.href = 'index.html';
+        } else {
+            throw new Error("Error: Nombre de usuario o contraseña incorrectos");
+        }
+    } catch (error) {
+        alert(error.message);
     }
 }
