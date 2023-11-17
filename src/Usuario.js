@@ -46,4 +46,7 @@ export function LogginUsuario(nombre, password)
     {
         return "Bienvenido";
     }
+    else{
+        return "Ingrese los Datos Nuevamente";
+    }
 }

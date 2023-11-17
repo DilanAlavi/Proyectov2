@@ -66,6 +66,14 @@ const mockUserData = [
       expect(resultado).toBe("Bienvenido");
     });
 });
+describe('Deberia mandar mensaje de error de Inicio de Sesion', () => {
+  test('Deberia retornar un mensaje', () => {
+    const Nombre = "Anonimo1";
+    const password = "124";
+    const resultado = LogginUsuario(Nombre, password);
+    expect(resultado).toBe("Ingrese los Datos Nuevamente");
+  });
+});
 
 
   function mockLocalStorage() {
