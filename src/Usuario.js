@@ -39,3 +39,11 @@ export function BuscarUsuario(userData, credentials) {
     const { username, password } = credentials;
     return userData.find(usuario => usuario.username === username && usuario.password === password);
 }
+
+export function LogginUsuario(nombre, password)
+{
+    if (nombre=="Anonimo1"&&password=="1234")
+    {
+        return "Bienvenido";
+    }
+}

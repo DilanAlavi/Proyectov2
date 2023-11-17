@@ -1,5 +1,5 @@
 // Usuario.test.js
-import { FiltrarUsuarios, AgregarUsuario, BuscarUsuario, RegistroDeUsuario, validarCredenciales, IniciarSesion } from '../src/Usuario.js';
+import {LogginUsuario ,FiltrarUsuarios, AgregarUsuario, BuscarUsuario, RegistroDeUsuario, validarCredenciales, IniciarSesion } from '../src/Usuario.js';
 const mockUserData = [
     { username: 'usuario1', password: 'clave1' },
     { username: 'usuario2', password: 'clave2' },
@@ -53,6 +53,20 @@ const mockUserData = [
     const result = BuscarUsuario(mockUserData, mockCredentials);
     expect(result).toEqual({ username: 'usuario1', password: 'clave1' });
   }); 
+  test('Deberia Retornar ', () => {
+    const mockCredentials = { username: 'usuario1', password: 'clave1' };
+    const result = BuscarUsuario(mockUserData, mockCredentials);
+    expect(result).toEqual({ username: 'usuario1', password: 'clave1' });
+  }); 
+  describe('Pruebas de inicio de sesión', () => {
+    test('Debería hacer el Loggin de datos correctamente', () => {
+      const Nombre = "Anonimo1";
+      const password = "1234";
+      const resultado = LogginUsuario(Nombre, password);
+      expect(resultado).toBe("Bienvenido");
+    });
+});
+
 
   function mockLocalStorage() {
     return {
