@@ -58,6 +58,18 @@ const mockUserData = [
     const result = BuscarUsuario(mockUserData, mockCredentials);
     expect(result).toEqual({ username: 'usuario1', password: 'clave1' });
   }); 
+  test('IniciarSesion debería lanzar un error en caso de nombre de usuario o contraseña incorrectos', () => {
+    const mockCredentials = { username: 'usuarioNoExistente', password: 'claveIncorrecta' };
+    const localStorageMock = mockLocalStorage();
+    const alertMock = mockAlert();
+    global.localStorage = localStorageMock;
+    global.alert = alertMock;
+    jest.spyOn(require('../src/Usuario.js'), 'BuscarUsuario').mockReturnValue(null);
+    IniciarSesion(mockUserData, mockCredentials);
+    expect(localStorageMock.setItem).not.toHaveBeenCalled();
+    expect(alertMock).toHaveBeenCalledWith('Error: Nombre de usuario o contraseña incorrectos');
+    jest.restoreAllMocks();
+  });
   test('Inicio de Sesion debería registrar un nuevo usuario con éxito', () => {
     const mockNewUser = { username: 'usuario1', password: 'clave1' };
     const localStorageMock = mockLocalStorage();
