@@ -1,8 +1,6 @@
 export function RegistroDeUsuario(userData, newUser) {
     try {
-        if (!newUser.username || !newUser.password) {
-            throw new Error("Por favor, complete todos los campos.");
-        }
+        validarCredenciales(newUser);
         const usuariosFiltrados = FiltrarUsuarios(userData, newUser);
         AgregarUsuario(userData, newUser, usuariosFiltrados);
         
