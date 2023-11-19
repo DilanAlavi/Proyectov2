@@ -42,4 +42,30 @@ window.onload = () => {
         cerrarSesionButton.style.display='block';
         CursosButton.style.display='block';
     }
+     // Mostrar el formulario de registro al hacer clic en el botón correspondiente
+     CrearCuentaButton.addEventListener("click", () => {
+        catalogContainer.innerHTML = '';
+        registroForm.style.display = 'block';
+        loginForm.style.display = 'none'; // Oculta el formulario de inicio de sesión
+    });
+    // Mostrar el formulario de inicio de sesión al hacer clic en el botón correspondiente
+    RegistarButton.addEventListener("click", () => {
+        catalogContainer.innerHTML = '';
+        registroForm.style.display = 'none'; // Oculta el formulario de registro
+        loginForm.style.display = 'block';
+    });
+    registrarseButton.addEventListener("click",RegistrarUsuario)
+    iniciarSesionButton.addEventListener("click",  IniciarSesionUsuario)
+
+    cerrarSesionButton.addEventListener("click", () => {
+        // Llamar a la función CerrarSesion
+        CerrarSesion();
+        // Ocultar botón de cerrar sesión y mostrar botones de crear cuenta y registrarse
+        cerrarSesionButton.style.display = 'none';
+        CrearCuentaButton.style.display = 'block';
+        RegistarButton.style.display = 'block';
+        // Limpiar el nombre de usuario en algún elemento HTML
+        nombreUsuarioElement.textContent = '';
+        window.location.reload();
+    });
 };
