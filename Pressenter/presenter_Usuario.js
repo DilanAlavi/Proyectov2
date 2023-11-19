@@ -21,3 +21,7 @@ export function IniciarSesionUsuario() {
 
     IniciarSesion(userData, credencialesUsuario);
 }
+
+export function CerrarSesion() {
+    localStorage.removeItem('usuarioActual');
+}
