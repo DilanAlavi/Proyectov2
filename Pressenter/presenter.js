@@ -1,5 +1,5 @@
 import CatalogList from '../src/Kata.js';
-import catalogData from '../Data/catalogData.js';
+import catalogData from '../src/catalogData.js';
 import { BusquedaDeCatalogos} from './presenter_BusquedaGlobal.js';
 import { sortCatalogsByDifficulty,OrdenarKatas } from './presenter_OrdenarKatas.js';
 import { CargarKata, CrearNUevaKata } from './presenter_CargarKata.js';

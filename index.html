@@ -8,14 +8,17 @@
 </head>
 <body>
     <h1>Lista de Catálogo de Katas</h1>
-      <!-- Botones de Crear Cuenta y Registrarse -->
-      <div id="nombreUsuario"></div>
-      <div>
-          <button id="crearCuentaButton">Crear Cuenta</button>
-          <button id="registrarseformButton">Registrarse</button>
-          <button id="cursosButton" style="display: none;">Ver Cursos</button></a>
-          <button id="cerrarSesionButton" style="display: none;">Cerrar Sesión</button>
-      </div>
+      
+    <!-- Botones de Crear Cuenta y Registrarse -->
+    <div id="nombreUsuario"></div>
+    <div>
+        <button id="crearCuentaButton">Crear Cuenta</button>
+        <button id="registrarseformButton">Registrarse</button>
+        <a href="Cursos.html"><button id="cursosButton" style="display: none;">Ver Cursos</button></a>
+        <button id="cerrarSesionButton" style="display: none;">Cerrar Sesión</button>
+    </div>
+
+    <!-- HTML en la página principal -->
     <div id="search-container">
         <input type="text" id="search-input" placeholder="Ingrese un catálogo">
         <button id="search-button">Buscar</button>
@@ -63,7 +66,6 @@
 
             <label for="contrasenaRegistro">Contraseña:</label>
             <input type="password" id="contrasenaRegistro" name="contrasenaRegistro" required>
-
             <button type="button" id="registrarseButton">Registrarse</button>
         </div>
      <!-- Formulario de Inicio de Sesión -->
@@ -77,7 +79,6 @@
 
         <button type="button" id="iniciarSesionButton">Iniciar Sesión</button>
     </div>
-
 
     <div id="catalog-container">
         <template id="catalog-template">
@@ -94,6 +95,8 @@
             </div>
         </template>
     </div>
+
+    <!-- Scripts de tus archivos JavaScript -->
     <script type="module" src="./Pressenter/presenter.js"></script>
 </body>
 </html>
