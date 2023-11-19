@@ -13,3 +13,11 @@ export function RegistrarUsuario() {
     RegistroDeUsuario(userData, nuevoUsuario);
 
 }
+export function IniciarSesionUsuario() {
+    const credencialesUsuario = {
+        username: usernameInputLogin.value.trim(),
+        password: passwordInputLogin.value.trim()
+    };
+
+    IniciarSesion(userData, credencialesUsuario);
+}
