@@ -13,7 +13,12 @@ const createKataForm = document.getElementById("create-kata-form");
 const saveKataButton = document.getElementById("save-kata-button");
 const sortDifficultySelect = document.getElementById("sort-difficulty");
 // Eventos; Cargamos todos los Datos para las Katas a la UI
-
+// Función para verificar si el usuario puede realizar acciones de kata
+function puedeRealizarAccionesKata() {
+    const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual'));
+    // Agrega aquí lógica adicional según tus requisitos, por ejemplo, verifica roles o permisos
+    return usuarioActual !== null;
+}
 window.onload = () => {
     CargarKata(catalogData);
     searchButton.addEventListener("click", BusquedaDeCatalogos);
