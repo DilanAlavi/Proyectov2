@@ -1,3 +1,4 @@
+// presenter_Usuario.js
 import { RegistroDeUsuario, IniciarSesion } from '../src/Usuario.js';
 import userData from '../Data/userData.js';
 const usernameInput = document.getElementById("nombreRegistro"); // Cambiado para coincidir con el HTML

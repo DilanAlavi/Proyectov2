@@ -1,6 +1,8 @@
 export function RegistroDeUsuario(userData, newUser) {
     try {
-        validarCredenciales(newUser);
+        if (!newUser.username || !newUser.password) {
+            throw new Error("Por favor, complete todos los campos.");
+        }
         const usuariosFiltrados = FiltrarUsuarios(userData, newUser);
         AgregarUsuario(userData, newUser, usuariosFiltrados);
         
@@ -16,6 +18,11 @@ export function RegistroDeUsuario(userData, newUser) {
         alert(error.message);
     }
 }
+ /*export function validarDatos(newUser) {
+    if (!newUser.username || !newUser.password) {
+        throw new Error("Por favor, complete todos los campos.");
+    }
+}*/
 export function FiltrarUsuarios(userData, newUser) {
     const { username } = newUser;
     return userData.filter(usuario => usuario.username === username);
@@ -27,15 +34,6 @@ export function AgregarUsuario(userData, newUser, usuariosFiltrados) {
     } else {
         userData.push(newUser);
     }
-}
-export function validarCredenciales(credentials) {
-    if (!credentials.username || !credentials.password) {
-        throw new Error("Por favor, complete todos los campos.");
-    }
-}
-export function BuscarUsuario(userData, credentials) {
-    const { username, password } = credentials;
-    return userData.find(usuario => usuario.username === username && usuario.password === password);
 }
 
 export function IniciarSesion(userData, credentials) {
@@ -54,4 +52,14 @@ export function IniciarSesion(userData, credentials) {
     } catch (error) {
         alert(error.message);
     }
+}
+
+export function validarCredenciales(credentials) {
+    if (!credentials.username || !credentials.password) {
+        throw new Error("Por favor, complete todos los campos.");
+    }
+}
+export function BuscarUsuario(userData, credentials) {
+    const { username, password } = credentials;
+    return userData.find(usuario => usuario.username === username && usuario.password === password);
 }
