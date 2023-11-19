@@ -28,9 +28,13 @@ window.onload = () => {
         catalogContainer.innerHTML = '';
         createKataForm.style.display = "block";
     });
-    saveKataButton.addEventListener("click", CrearNUevaKata);
-
-
+    saveKataButton.addEventListener("click", () => {
+        if (puedeRealizarAccionesKata()) {
+            CrearNUevaKata();
+        } else {
+            alert("Debes iniciar sesión o crear una cuenta para realizar esta acción.");
+        }
+    });
     const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual'));
     if (usuarioActual) {
         // Muestra el nombre del usuario en algún elemento HTML
