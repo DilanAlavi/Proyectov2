@@ -25,8 +25,12 @@ window.onload = () => {
     sortSelect.addEventListener("change", OrdenarKatas);
     sortDifficultySelect.addEventListener("change", sortCatalogsByDifficulty);
     createKataButton.addEventListener("click", () => {
-        catalogContainer.innerHTML = '';
-        createKataForm.style.display = "block";
+        if (puedeRealizarAccionesKata()) {
+            catalogContainer.innerHTML = '';
+            createKataForm.style.display = "block";
+        } else {
+            alert("Debes iniciar sesión o crear una cuenta para realizar esta acción.");
+        }
     });
     saveKataButton.addEventListener("click", () => {
         if (puedeRealizarAccionesKata()) {
