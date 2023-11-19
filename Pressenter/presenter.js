@@ -29,4 +29,17 @@ window.onload = () => {
         createKataForm.style.display = "block";
     });
     saveKataButton.addEventListener("click", CrearNUevaKata);
+
+
+    const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual'));
+    if (usuarioActual) {
+        // Muestra el nombre del usuario en algún elemento HTML
+        const nombreUsuarioElement = document.getElementById('nombreUsuario');
+        nombreUsuarioElement.textContent = `¡Hola, ${usuarioActual.username}!`;
+                // Ocultar botones de crear cuenta y registrarse si el usuario está autenticado
+        CrearCuentaButton.style.display = 'none';
+        RegistarButton.style.display = 'none';
+        cerrarSesionButton.style.display='block';
+        CursosButton.style.display='block';
+    }
 };
