@@ -18,4 +18,18 @@ describe('Pruebas de Registro de Usuario', () => {
           expect(message).to.include('Por favor, complete todos los campos.');    
         });      
       });
+
+    it('Debería mostrar un mensaje de error si el Nombre de Usuario ya esta en uso', () => {
+      cy.visit('index.html');
+      cy.get('#registrarseformButton').click();
+      cy.get('#registroForm').invoke('show');
+      cy.get('#nombreRegistro').type('Dilan@gmail.com');
+      cy.get('#correoRegistro').type('nuevo.usuario@example.com');
+      cy.get('#contrasenaRegistro').type('NuevaClave');
+      cy.get('#registrarseButton').click();
+      cy.on('window:alert', (message) => {
+        expect(message).to.include('El nombre de usuario ya está en uso.');
+
+      });
+});
 });
