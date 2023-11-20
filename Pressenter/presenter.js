@@ -53,6 +53,6 @@ window.onload = () => {
         CrearCuentaButton.style.display = 'block';
         RegistarButton.style.display = 'block';
         nombreUsuarioElement.textContent = '';
-        window.location.reload();
+       
     });
 };

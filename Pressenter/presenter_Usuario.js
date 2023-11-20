@@ -29,6 +29,7 @@ export function IniciarSesionUsuario() {
 
 export function CerrarSesion() {
     localStorage.removeItem('usuarioActual');
+    window.location.reload();
 }
 export function actualizarVistaConUsuarioAutenticado(usuarioActual)
 {
