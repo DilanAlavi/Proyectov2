@@ -33,3 +33,14 @@ describe('Pruebas de Registro de Usuario', () => {
       });
 });
 });
+describe('Pruebas de Iniciar Sesión', () => {
+  it('Debería iniciar sesión con un usuario registrado', () => {
+      cy.visit('/');
+      cy.get('#loginForm').invoke('show');
+      cy.get('#iniciarSesionButton').click();
+      cy.get('#nombreloggin').type('Dilan@gmail.com');
+      cy.get('#contrasena').type('333');
+      cy.get('#iniciarSesionButton').click();
+      cy.contains('#nombreUsuario', 'Dilan@gmail.com');
+    }); 
+});
