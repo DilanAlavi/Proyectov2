@@ -53,7 +53,6 @@ export function IniciarSesion(userData, credentials) {
         alert(error.message);
     }
 }
-
 export function validarCredenciales(credentials) {
     if (!credentials.username || !credentials.password) {
         throw new Error("Por favor, complete todos los campos.");
@@ -67,4 +66,7 @@ export function simulacionDeAlmacenamientoLocal() {
     return {
       setItem: jest.fn(), // jest.fn() crea una función simulada que rastrea las llamadas
     };
+  }
+  export function simulacionDeAlerta() {
+    return jest.fn(); 
   }

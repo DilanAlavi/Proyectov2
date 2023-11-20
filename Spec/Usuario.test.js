@@ -1,84 +1,84 @@
 // Usuario.test.js
-import {FiltrarUsuarios, AgregarUsuario, BuscarUsuario, RegistroDeUsuario, validarCredenciales, IniciarSesion,simulacionDeAlmacenamientoLocal } from '../src/Usuario.js';
-const mockUserData = [
+import {FiltrarUsuarios, AgregarUsuario, BuscarUsuario, RegistroDeUsuario, validarCredenciales, IniciarSesion,simulacionDeAlmacenamientoLocal, simulacionDeAlerta } from '../src/Usuario.js';
+const NuevoUserData = [
     { username: 'usuario1', password: 'clave1' },
     { username: 'usuario2', password: 'clave2' },
   ];
   test('FiltrarUsuarios debería devolver un array filtrado correctamente', () => {
-    const mockNewUser = { username: 'usuario1' };
-    const result = FiltrarUsuarios(mockUserData, mockNewUser);
+    const NuevoUsuario = { username: 'usuario1' };
+    const result = FiltrarUsuarios(NuevoUserData, NuevoUsuario);
     expect(result).toEqual([{ username: 'usuario1', password: 'clave1' }]);
   });
   test('AgregarUsuario debería agregar un nuevo usuario si no está en uso', () => {
-    const mockUserDataCopy = [...mockUserData];
-    const mockNewUser = { username: 'nuevoUsuario', password: 'nuevaClave' };
-    AgregarUsuario(mockUserDataCopy, mockNewUser, []);
-    expect(mockUserDataCopy).toEqual([...mockUserData, mockNewUser]);
+    const UserDataCopy = [...NuevoUserData];
+    const NuevoUsuario = { username: 'nuevoUsuario', password: 'nuevaClave' };
+    AgregarUsuario(UserDataCopy, NuevoUsuario, []);
+    expect(UserDataCopy).toEqual([...NuevoUserData, NuevoUsuario]);
   });
   
   test('AgregarUsuario debería lanzar un error si el nombre de usuario ya está en uso', () => {
-    const mockUserDataCopy = [...mockUserData];
-    const mockNewUser = { username: 'usuario1', password: 'nuevaClave' };
-    expect(() => AgregarUsuario(mockUserDataCopy, mockNewUser, mockUserData)).toThrowError(
+    const UserDataCopy = [...NuevoUserData];
+    const NuevoUsuario = { username: 'usuario1', password: 'nuevaClave' };
+    expect(() => AgregarUsuario(UserDataCopy, NuevoUsuario, NuevoUserData)).toThrowError(
       'El nombre de usuario ya está en uso.'
     );
     
   });
 
   test('RegistroDeUsuario debería registrar un nuevo usuario con éxito', () => {
-    const mockNewUser = { username: 'nuevoUsuario', password: 'nuevaClave' };
-    const localStorageMock = simulacionDeAlmacenamientoLocal();
-    const alertMock = mockAlert();
-    global.localStorage = localStorageMock;
-    global.alert = alertMock;
-    RegistroDeUsuario(mockUserData, mockNewUser);
-    expect(localStorageMock.setItem).toHaveBeenCalledWith('usuarioActual', JSON.stringify(mockNewUser));
-    expect(alertMock).toHaveBeenCalledWith('Usuario registrado con éxito');
+    const NuevoUsuario = { username: 'nuevoUsuario', password: 'nuevaClave' };
+    const simulacionLocal = simulacionDeAlmacenamientoLocal();
+    const MensajAlerta = simulacionDeAlerta();
+    global.localStorage = simulacionLocal;
+    global.alert = MensajAlerta;
+    RegistroDeUsuario(NuevoUserData, NuevoUsuario);
+    expect(simulacionLocal.setItem).toHaveBeenCalledWith('usuarioActual', JSON.stringify(NuevoUsuario));
+    expect(MensajAlerta).toHaveBeenCalledWith('Usuario registrado con éxito');
   });
   test('RegistroDeUsuario debería lanzar un error si no se completan todos los campos', () => {
-    const mockNewUser = { username: 'nuevoUsuario' };
-    const alertMock = mockAlert();
-    global.alert = alertMock;
-    RegistroDeUsuario(mockUserData, mockNewUser);
-    expect(alertMock).toHaveBeenCalledWith('Por favor, complete todos los campos.');
+    const NuevoUsuario = { username: 'nuevoUsuario' };
+    const MensajAlerta = simulacionDeAlerta();
+    global.alert = MensajAlerta;
+    RegistroDeUsuario(NuevoUserData, NuevoUsuario);
+    expect(MensajAlerta).toHaveBeenCalledWith('Por favor, complete todos los campos.');
   }); 
   test('validarCredenciales debería lanzar un error si no se completan todos los campos', () => {
-    const mockCredentials = { username: 'usuario1' };
-    expect(() => validarCredenciales(mockCredentials)).toThrowError(
+    const credenciales = { username: 'usuario1' };
+    expect(() => validarCredenciales(credenciales)).toThrowError(
       'Por favor, complete todos los campos.'
     );
   }); 
   test('BuscarUsuario debería devolver el usuario correcto', () => {
-    const mockCredentials = { username: 'usuario1', password: 'clave1' };
-    const result = BuscarUsuario(mockUserData, mockCredentials);
+    const credenciales = { username: 'usuario1', password: 'clave1' };
+    const result = BuscarUsuario(NuevoUserData, credenciales);
     expect(result).toEqual({ username: 'usuario1', password: 'clave1' });
   }); 
   test('Deberia Retornar ', () => {
-    const mockCredentials = { username: 'usuario1', password: 'clave1' };
-    const result = BuscarUsuario(mockUserData, mockCredentials);
+    const credenciales = { username: 'usuario1', password: 'clave1' };
+    const result = BuscarUsuario(NuevoUserData, credenciales);
     expect(result).toEqual({ username: 'usuario1', password: 'clave1' });
   }); 
   test('IniciarSesion debería lanzar un error en caso de nombre de usuario o contraseña incorrectos', () => {
-    const mockCredentials = { username: 'usuarioNoExistente', password: 'claveIncorrecta' };
-    const localStorageMock = simulacionDeAlmacenamientoLocal();
-    const alertMock = mockAlert();
-    global.localStorage = localStorageMock;
-    global.alert = alertMock;
+    const credenciales = { username: 'usuarioNoExistente', password: 'claveIncorrecta' };
+    const simulacionLocal = simulacionDeAlmacenamientoLocal();
+    const MensajAlerta = simulacionDeAlerta();
+    global.localStorage = simulacionLocal;
+    global.alert = MensajAlerta;
     jest.spyOn(require('../src/Usuario.js'), 'BuscarUsuario').mockReturnValue(null);
-    IniciarSesion(mockUserData, mockCredentials);
-    expect(localStorageMock.setItem).not.toHaveBeenCalled();
-    expect(alertMock).toHaveBeenCalledWith('Error: Nombre de usuario o contraseña incorrectos');
+    IniciarSesion(NuevoUserData, credenciales);
+    expect(simulacionLocal.setItem).not.toHaveBeenCalled();
+    expect(MensajAlerta).toHaveBeenCalledWith('Error: Nombre de usuario o contraseña incorrectos');
     jest.restoreAllMocks();
   });
   test('Inicio de Sesion debería registrar un nuevo usuario con éxito', () => {
-    const mockNewUser = { username: 'usuario1', password: 'clave1' };
-    const localStorageMock = simulacionDeAlmacenamientoLocal();
-    const alertMock = mockAlert();
-    global.localStorage = localStorageMock;
-    global.alert = alertMock;
-    IniciarSesion(mockUserData, mockNewUser);
-    expect(localStorageMock.setItem).toHaveBeenCalledWith('usuarioActual', JSON.stringify(mockNewUser));
-    expect(alertMock).toHaveBeenCalledWith('Inicio de sesión exitoso');
+    const nuevoUsuario = { username: 'usuario1', password: 'clave1' };
+    const simulacionLocal = simulacionDeAlmacenamientoLocal();
+    const MensajAlerta = simulacionDeAlerta();
+    global.localStorage = simulacionLocal;
+    global.alert = MensajAlerta;
+    IniciarSesion(NuevoUserData, nuevoUsuario);
+    expect(simulacionLocal.setItem).toHaveBeenCalledWith('usuarioActual', JSON.stringify(nuevoUsuario));
+    expect(MensajAlerta).toHaveBeenCalledWith('Inicio de sesión exitoso');
   });
 
 
@@ -94,8 +94,5 @@ const mockUserData = [
 
 
 
-// Función para simular la función alert sin realizar ninguna acción
-function mockAlert() {
-  return jest.fn(); // jest.fn() crea una función simulada que no hace nada
-}
+
 
