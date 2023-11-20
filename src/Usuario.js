@@ -63,3 +63,8 @@ export function BuscarUsuario(userData, credentials) {
     const { username, password } = credentials;
     return userData.find(usuario => usuario.username === username && usuario.password === password);
 }
+export function simulacionDeAlmacenamientoLocal() {
+    return {
+      setItem: jest.fn(), // jest.fn() crea una función simulada que rastrea las llamadas
+    };
+  }

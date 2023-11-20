@@ -1,5 +1,5 @@
 // Usuario.test.js
-import {FiltrarUsuarios, AgregarUsuario, BuscarUsuario, RegistroDeUsuario, validarCredenciales, IniciarSesion } from '../src/Usuario.js';
+import {FiltrarUsuarios, AgregarUsuario, BuscarUsuario, RegistroDeUsuario, validarCredenciales, IniciarSesion,simulacionDeAlmacenamientoLocal } from '../src/Usuario.js';
 const mockUserData = [
     { username: 'usuario1', password: 'clave1' },
     { username: 'usuario2', password: 'clave2' },
@@ -27,7 +27,7 @@ const mockUserData = [
 
   test('RegistroDeUsuario debería registrar un nuevo usuario con éxito', () => {
     const mockNewUser = { username: 'nuevoUsuario', password: 'nuevaClave' };
-    const localStorageMock = mockLocalStorage();
+    const localStorageMock = simulacionDeAlmacenamientoLocal();
     const alertMock = mockAlert();
     global.localStorage = localStorageMock;
     global.alert = alertMock;
@@ -60,7 +60,7 @@ const mockUserData = [
   }); 
   test('IniciarSesion debería lanzar un error en caso de nombre de usuario o contraseña incorrectos', () => {
     const mockCredentials = { username: 'usuarioNoExistente', password: 'claveIncorrecta' };
-    const localStorageMock = mockLocalStorage();
+    const localStorageMock = simulacionDeAlmacenamientoLocal();
     const alertMock = mockAlert();
     global.localStorage = localStorageMock;
     global.alert = alertMock;
@@ -72,7 +72,7 @@ const mockUserData = [
   });
   test('Inicio de Sesion debería registrar un nuevo usuario con éxito', () => {
     const mockNewUser = { username: 'usuario1', password: 'clave1' };
-    const localStorageMock = mockLocalStorage();
+    const localStorageMock = simulacionDeAlmacenamientoLocal();
     const alertMock = mockAlert();
     global.localStorage = localStorageMock;
     global.alert = alertMock;
@@ -92,12 +92,7 @@ const mockUserData = [
 
 
 
- // Función para simular el localStorage con un método setItem que rastrea las llamadas
-function mockLocalStorage() {
-  return {
-    setItem: jest.fn(), // jest.fn() crea una función simulada que rastrea las llamadas
-  };
-}
+
 
 // Función para simular la función alert sin realizar ninguna acción
 function mockAlert() {
