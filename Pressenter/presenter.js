@@ -2,8 +2,8 @@ import CatalogList from '../src/Kata.js';
 import catalogData from '../Data/catalogData.js';
 import { BusquedaDeCatalogos } from './presenter_BusquedaGlobal.js';
 import { sortCatalogsByDifficulty, OrdenarKatas } from './presenter_OrdenarKatas.js';
-import { CargarKata, CrearNUevaKata } from './presenter_CargarKata.js';
-import { RegistrarUsuario, IniciarSesionUsuario, CerrarSesion } from './presenter_Usuario.js';
+import { CargarKata, CrearNUevaKata, usuarioPuedeRealizarAccionesKata } from './presenter_CargarKata.js';
+import { RegistrarUsuario, IniciarSesionUsuario, CerrarSesion} from './presenter_Usuario.js';
 
 const catalogListInstance = new CatalogList(catalogData);
 const catalogContainer = document.getElementById("catalog-container");
@@ -21,12 +21,7 @@ const registrarseButton = document.getElementById("registrarseButton");
 const iniciarSesionButton = document.getElementById("iniciarSesionButton");
 const cerrarSesionButton = document.getElementById("cerrarSesionButton");
 const CursosButton = document.getElementById("cursosButton");
-// Función para verificar si el usuario puede realizar acciones de kata
-function puedeRealizarAccionesKata() {
-    const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual'));
-    // Agrega aquí lógica adicional según tus requisitos, por ejemplo, verifica roles o permisos
-    return usuarioActual !== null;
-}
+
 // Eventos; Cargamos todos los Datos para las Katas a la UI
 window.onload = () => {
     CargarKata(catalogData);
@@ -34,7 +29,7 @@ window.onload = () => {
     sortSelect.addEventListener("change", OrdenarKatas);
     sortDifficultySelect.addEventListener("change", sortCatalogsByDifficulty);
     createKataButton.addEventListener("click", () => {
-        if (puedeRealizarAccionesKata()) {
+        if (usuarioPuedeRealizarAccionesKata()) {
             catalogContainer.innerHTML = '';
             createKataForm.style.display = "block";
         } else {
@@ -43,7 +38,7 @@ window.onload = () => {
     });
 
     saveKataButton.addEventListener("click", () => {
-        if (puedeRealizarAccionesKata()) {
+        if (usuarioPuedeRealizarAccionesKata()) {
             CrearNUevaKata();
         } else {
             alert("Debes iniciar sesión o crear una cuenta para realizar esta acción.");

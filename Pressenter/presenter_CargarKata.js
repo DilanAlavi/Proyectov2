@@ -7,7 +7,11 @@ const createKataButton = document.getElementById("create-kata-button");
 const createKataForm = document.getElementById("create-kata-form");
 const saveKataButton = document.getElementById("save-kata-button");
 
-
+// Función para verificar si el usuario puede realizar acciones de kata
+export function usuarioPuedeRealizarAccionesKata() {
+    const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual'));
+    return usuarioActual !== null;
+}
 export function CargarKata(catalogs) {
     catalogContainer.innerHTML = '';
     catalogs.forEach(catalog => {
