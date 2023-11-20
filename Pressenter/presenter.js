@@ -3,7 +3,7 @@ import catalogData from '../Data/catalogData.js';
 import { BusquedaDeCatalogos } from './presenter_BusquedaGlobal.js';
 import { CatalogoOrdenadoPorDificultad, OrdenarKatas } from './presenter_OrdenarKatas.js';
 import { CargarKata, mostrarFormularioKata,GuardarFormularioKata } from './presenter_CargarKata.js';
-import { RegistrarUsuario, IniciarSesionUsuario, CerrarSesion,actualizarVistaConUsuarioAutenticado} from './presenter_Usuario.js';
+import { RegistrarUsuario, IniciarSesionUsuario, UsuarioCerrarSesion,actualizarVistaConUsuarioAutenticado} from './presenter_Usuario.js';
 
 const catalogListInstance = new CatalogList(catalogData);
 const catalogContainer = document.getElementById("catalog-container");
@@ -47,12 +47,5 @@ window.onload = () => {
     registrarseButton.addEventListener("click",RegistrarUsuario)
     iniciarSesionButton.addEventListener("click",  IniciarSesionUsuario)
 
-    cerrarSesionButton.addEventListener("click", () => {
-        CerrarSesion();
-        cerrarSesionButton.style.display = 'none';
-        CrearCuentaButton.style.display = 'block';
-        RegistarButton.style.display = 'block';
-        nombreUsuarioElement.textContent = '';
-       
-    });
+    cerrarSesionButton.addEventListener("click",UsuarioCerrarSesion);
 };

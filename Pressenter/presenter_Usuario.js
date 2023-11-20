@@ -31,6 +31,14 @@ export function CerrarSesion() {
     localStorage.removeItem('usuarioActual');
     window.location.reload();
 }
+export function UsuarioCerrarSesion(){
+    CerrarSesion();
+    // Ocultar botón de cerrar sesión y mostrar botones de crear cuenta y registrarse
+    cerrarSesionButton.style.display = 'none';
+    CrearCuentaButton.style.display = 'block';
+    RegistarButton.style.display = 'block';
+    nombreUsuarioElement.textContent = '';
+}
 export function actualizarVistaConUsuarioAutenticado(usuarioActual)
 {
     if (usuarioActual) {
