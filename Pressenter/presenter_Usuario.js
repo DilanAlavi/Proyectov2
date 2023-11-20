@@ -1,10 +1,14 @@
 // presenter_Usuario.js
 import { RegistroDeUsuario, IniciarSesion } from '../src/Usuario.js';
 import userData from '../Data/userData.js';
-const usernameInput = document.getElementById("nombreRegistro"); // Cambiado para coincidir con el HTML
-const passwordInput = document.getElementById("contrasenaRegistro"); // Cambiado para coincidir con el HTML
-const usernameInputLogin = document.getElementById("nombreloggin"); // Cambiado para coincidir con el HTML
+const usernameInput = document.getElementById("nombreRegistro"); 
+const passwordInput = document.getElementById("contrasenaRegistro"); 
+const usernameInputLogin = document.getElementById("nombreloggin"); 
 const passwordInputLogin = document.getElementById("contrasena"); 
+const CursosButton = document.getElementById("cursosButton");
+const cerrarSesionButton = document.getElementById("cerrarSesionButton");
+const RegistarButton = document.getElementById("registrarseformButton");
+const CrearCuentaButton= document.getElementById("crearCuentaButton");
 export function RegistrarUsuario() {
     const nuevoUsuario = {
         username: usernameInput.value.trim(),
@@ -25,4 +29,17 @@ export function IniciarSesionUsuario() {
 
 export function CerrarSesion() {
     localStorage.removeItem('usuarioActual');
+}
+export function actualizarVistaConUsuarioAutenticado(usuarioActual)
+{
+    if (usuarioActual) {
+        // Muestra el nombre del usuario por HTML
+        const nombreUsuarioElement = document.getElementById('nombreUsuario');
+        nombreUsuarioElement.textContent = `¡Hola, ${usuarioActual.username}!`;
+        // Ocultar botones de crear cuenta y registrarse si el usuario está autenticado
+        CrearCuentaButton.style.display = 'none';
+        RegistarButton.style.display = 'none';
+        cerrarSesionButton.style.display='block';
+        CursosButton.style.display='block';
+    }
 }

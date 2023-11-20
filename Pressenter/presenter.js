@@ -3,7 +3,7 @@ import catalogData from '../Data/catalogData.js';
 import { BusquedaDeCatalogos } from './presenter_BusquedaGlobal.js';
 import { CatalogoOrdenadoPorDificultad, OrdenarKatas } from './presenter_OrdenarKatas.js';
 import { CargarKata, mostrarFormularioKata,GuardarFormularioKata } from './presenter_CargarKata.js';
-import { RegistrarUsuario, IniciarSesionUsuario, CerrarSesion} from './presenter_Usuario.js';
+import { RegistrarUsuario, IniciarSesionUsuario, CerrarSesion,actualizarVistaConUsuarioAutenticado} from './presenter_Usuario.js';
 
 const catalogListInstance = new CatalogList(catalogData);
 const catalogContainer = document.getElementById("catalog-container");
@@ -20,7 +20,7 @@ const loginForm = document.getElementById("loginForm");
 const registrarseButton = document.getElementById("registrarseButton");
 const iniciarSesionButton = document.getElementById("iniciarSesionButton");
 const cerrarSesionButton = document.getElementById("cerrarSesionButton");
-const CursosButton = document.getElementById("cursosButton");
+const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual'));
 
 
 // Eventos; Cargamos todos los Datos a la UI
@@ -31,17 +31,7 @@ window.onload = () => {
     sortDifficultySelect.addEventListener("change", CatalogoOrdenadoPorDificultad);
     createKataButton.addEventListener("click", mostrarFormularioKata);
     saveKataButton.addEventListener("click",GuardarFormularioKata);
-    const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual'));
-    if (usuarioActual) {
-        // Muestra el nombre del usuario en algún elemento HTML
-        const nombreUsuarioElement = document.getElementById('nombreUsuario');
-        nombreUsuarioElement.textContent = `¡Hola, ${usuarioActual.username}!`;
-                // Ocultar botones de crear cuenta y registrarse si el usuario está autenticado
-        CrearCuentaButton.style.display = 'none';
-        RegistarButton.style.display = 'none';
-        cerrarSesionButton.style.display='block';
-        CursosButton.style.display='block';
-    }
+    actualizarVistaConUsuarioAutenticado(usuarioActual);
     // Mostrar el formulario de registro al hacer clic en el botón correspondiente
     CrearCuentaButton.addEventListener("click", () => {
         catalogContainer.innerHTML = '';
@@ -58,13 +48,10 @@ window.onload = () => {
     iniciarSesionButton.addEventListener("click",  IniciarSesionUsuario)
 
     cerrarSesionButton.addEventListener("click", () => {
-        // Llamar a la función CerrarSesion
         CerrarSesion();
-        // Ocultar botón de cerrar sesión y mostrar botones de crear cuenta y registrarse
         cerrarSesionButton.style.display = 'none';
         CrearCuentaButton.style.display = 'block';
         RegistarButton.style.display = 'block';
-        // Limpiar el nombre de usuario en algún elemento HTML
         nombreUsuarioElement.textContent = '';
         window.location.reload();
     });
