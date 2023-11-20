@@ -9,4 +9,13 @@ describe('Pruebas de Registro de Usuario', () => {
       cy.get('#registrarseButton').click();
       cy.contains('#nombreUsuario', 'NuevoUsuario');
     });
+    it('Debería mostrar mensaje de Error si no se completa los campos', () => {
+        cy.visit('index.html');
+        cy.get('#registrarseformButton').click();
+        cy.get('#registroForm').invoke('show');
+        cy.get('#registrarseButton').click();
+        cy.on('window:alert', (message) => {
+          expect(message).to.include('Por favor, complete todos los campos.');    
+        });      
+      });
 });
