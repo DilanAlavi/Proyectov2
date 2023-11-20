@@ -54,4 +54,12 @@ describe('Pruebas de Iniciar Sesión', () => {
 
       });
   });
+  it('Deberia mostrar un  mensaje de Error, si no se singresa ningun dato', () => {
+    cy.visit('/'); 
+    cy.get('#loginForm').invoke('show');
+    cy.get('#iniciarSesionButton').click();
+    cy.on('window:alert', (message) => {
+      expect(message).to.include('Por favor, complete todos los campos.');
+  });
+});
 });
