@@ -43,4 +43,15 @@ describe('Pruebas de Iniciar Sesión', () => {
       cy.get('#iniciarSesionButton').click();
       cy.contains('#nombreUsuario', 'Dilan@gmail.com');
     }); 
+    it('Deberia mostrar un  mensaje de Error, si engreso mal los datos al Iniciar Sesion', () => {
+      cy.visit('/'); 
+      cy.get('#loginForm').invoke('show');
+      cy.get('#nombreloggin').type('Dilan@gmail.com');
+      cy.get('#contrasena').type('222');
+      cy.get('#iniciarSesionButton').click();
+      cy.on('window:alert', (message) => {
+        expect(message).to.include('Nombre de usuario o contraseña incorrectos');
+
+      });
+  });
 });
