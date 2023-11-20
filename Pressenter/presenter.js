@@ -1,8 +1,8 @@
 import CatalogList from '../src/Kata.js';
 import catalogData from '../Data/catalogData.js';
 import { BusquedaDeCatalogos } from './presenter_BusquedaGlobal.js';
-import { sortCatalogsByDifficulty, OrdenarKatas } from './presenter_OrdenarKatas.js';
-import { CargarKata, CrearNUevaKata, usuarioPuedeRealizarAccionesKata } from './presenter_CargarKata.js';
+import { CatalogoOrdenadoPorDificultad, OrdenarKatas } from './presenter_OrdenarKatas.js';
+import { CargarKata, mostrarFormularioKata,GuardarFormularioKata } from './presenter_CargarKata.js';
 import { RegistrarUsuario, IniciarSesionUsuario, CerrarSesion} from './presenter_Usuario.js';
 
 const catalogListInstance = new CatalogList(catalogData);
@@ -16,35 +16,21 @@ const sortDifficultySelect = document.getElementById("sort-difficulty");
 const CrearCuentaButton= document.getElementById("crearCuentaButton");
 const RegistarButton = document.getElementById("registrarseformButton");
 const registroForm = document.getElementById("registroForm");
-const loginForm = document.getElementById("loginForm");// Añadir controladores de eventos para los botones de registro e inicio de sesión
+const loginForm = document.getElementById("loginForm");
 const registrarseButton = document.getElementById("registrarseButton");
 const iniciarSesionButton = document.getElementById("iniciarSesionButton");
 const cerrarSesionButton = document.getElementById("cerrarSesionButton");
 const CursosButton = document.getElementById("cursosButton");
 
-// Eventos; Cargamos todos los Datos para las Katas a la UI
+
+// Eventos; Cargamos todos los Datos a la UI
 window.onload = () => {
     CargarKata(catalogData);
     searchButton.addEventListener("click", BusquedaDeCatalogos);
     sortSelect.addEventListener("change", OrdenarKatas);
-    sortDifficultySelect.addEventListener("change", sortCatalogsByDifficulty);
-    createKataButton.addEventListener("click", () => {
-        if (usuarioPuedeRealizarAccionesKata()) {
-            catalogContainer.innerHTML = '';
-            createKataForm.style.display = "block";
-        } else {
-            alert("Debes iniciar sesión o crear una cuenta para realizar esta acción.");
-        }
-    });
-
-    saveKataButton.addEventListener("click", () => {
-        if (usuarioPuedeRealizarAccionesKata()) {
-            CrearNUevaKata();
-        } else {
-            alert("Debes iniciar sesión o crear una cuenta para realizar esta acción.");
-        }
-    });
-
+    sortDifficultySelect.addEventListener("change", CatalogoOrdenadoPorDificultad);
+    createKataButton.addEventListener("click", mostrarFormularioKata);
+    saveKataButton.addEventListener("click",GuardarFormularioKata);
     const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual'));
     if (usuarioActual) {
         // Muestra el nombre del usuario en algún elemento HTML
@@ -56,7 +42,7 @@ window.onload = () => {
         cerrarSesionButton.style.display='block';
         CursosButton.style.display='block';
     }
-     // Mostrar el formulario de registro al hacer clic en el botón correspondiente
+    // Mostrar el formulario de registro al hacer clic en el botón correspondiente
     CrearCuentaButton.addEventListener("click", () => {
         catalogContainer.innerHTML = '';
         registroForm.style.display = 'block';

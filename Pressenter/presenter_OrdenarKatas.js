@@ -5,7 +5,7 @@ import catalogData from '../Data/catalogData.js';
 
 const sortDifficultySelect = document.getElementById("sort-difficulty");
 const sortSelect = document.getElementById("sort-select");
-export function sortCatalogsByDifficulty() {
+export function CatalogoOrdenadoPorDificultad() {
     OrdenarCatalogsPorDificultad(catalogData, sortDifficultySelect.value);
     CargarKata(catalogData);
 }
