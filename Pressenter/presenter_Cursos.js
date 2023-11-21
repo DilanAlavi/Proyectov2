@@ -18,6 +18,11 @@ export function cargarCursos(DataCurso) {
             buttonAñadirCursos.style.display = "none";
             ButtoneliminarCursos.style.display = "block";
          });
+         ButtoneliminarCursos.addEventListener("click",() => {
+            SalirCursoUsuario(DataCurso);
+            buttonAñadirCursos.style.display = "block";
+            ButtoneliminarCursos.style.display = "none";
+         });
 
         cursoContainer.appendChild(cursoData);
     });
