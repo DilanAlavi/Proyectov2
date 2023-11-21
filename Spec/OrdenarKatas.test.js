@@ -1,4 +1,4 @@
-import { OrdenarCatalogsPorDificultad, OrdenarCatalogs } from '../src/OrdenarKatas.js';
+import { OrdenarCatalogsPorDificultad, OrdenarCatalogsPorTitulo } from '../src/OrdenarKatas.js';
 
 describe('OrdenarCatalogsPorDificultad', () => {
   it('debería ordenar por dificultad de manera ascendente', () => {
@@ -42,7 +42,7 @@ describe('OrdenarCatalogs', () => {
       { Title: 'B' },
     ];
 
-    OrdenarCatalogs(dataToSort, 'asc');
+    OrdenarCatalogsPorTitulo(dataToSort, 'asc');
 
     expect(dataToSort).toEqual([
       { Title: 'A' },
@@ -58,7 +58,7 @@ describe('OrdenarCatalogs', () => {
       { Title: 'B' },
     ];
 
-    OrdenarCatalogs(dataToSort, 'desc');
+    OrdenarCatalogsPorTitulo(dataToSort, 'desc');
 
     expect(dataToSort).toEqual([
       { Title: 'C' },

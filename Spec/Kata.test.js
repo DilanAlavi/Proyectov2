@@ -6,8 +6,7 @@ describe("Pruebas de obtención de título y descripción de la kata", () => {
     const catalogList = new CatalogList(catalogData);
 
     const catalogItems = catalogList.VisualizarDatosDeCatalogos();
-
-    // Recorre todos los catálogos en catalogData y verifica con capa elemento de catalogData
+    // Recorre todos los catálogos en catalogData y verifica con cada elemento de catalogData
     catalogData.forEach((catalog, index) => {
       expect(catalogItems[index].title).toEqual(catalog.Title);
       expect(catalogItems[index].description).toEqual(catalog.Description);
