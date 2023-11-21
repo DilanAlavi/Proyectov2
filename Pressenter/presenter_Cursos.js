@@ -25,7 +25,9 @@ export function cargarCursos(DataCurso) {
 
 export function cargarCursoUsuario(title, description, category) {//cambiar nombre de la funcion
     unirseCursoUsuario(title, description, category);
-   alert("Curso añadido exitosamente.");
-  
+    alert("Curso añadido exitosamente.");   
+}
+export function SalirCursoUsuario() {
+    alert("Curso se elimino exitosamente.");
 
 }
