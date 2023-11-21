@@ -9,7 +9,11 @@ describe('Mostrar catalogo de Cursos', () => {
       cy.get('#registrarseButton').click();
       cy.wait(1000); 
     });
-
+    it('Verifica que cargue los Datos de las Katas', () => {
+      cy.contains('Cursos').should('be.visible').click();
+      cy.get('.curso-item').should('have.length.greaterThan', 0);
+    });
+    
     it('debería mostrar un mensaje si se añadio el Curso', () => {
       cy.contains('Cursos').should('be.visible').click();
       cy.get('.curso-item').should('have.length.greaterThan', 0);
