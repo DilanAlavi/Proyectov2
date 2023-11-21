@@ -3,7 +3,7 @@ import catalogData from '../Data/catalogData.js';
 import CursosData from '../Data/CursosData.js';
 import { BusquedaDeCatalogos } from './presenter_BusquedaGlobal.js';
 import { CatalogoOrdenadoPorDificultad, OrdenarKatas } from './presenter_OrdenarKatas.js';
-import { CargarKata, mostrarFormularioKata,GuardarFormularioKata } from './presenter_CargarKata.js';
+import { CargarKata, mostrarFormularioKata,GuardarFormularioKata, LimpairContenedorKatas } from './presenter_CargarKata.js';
 import { RegistrarUsuario, IniciarSesionUsuario, UsuarioCerrarSesion,actualizarVistaConUsuarioAutenticado} from './presenter_Usuario.js';
 import { cargarCursos } from './presenter_Cursos.js';
 
@@ -54,22 +54,9 @@ window.onload = () => {
    iniciarSesionButton.addEventListener("click",  IniciarSesionUsuario)
     cerrarSesionButton.addEventListener("click",UsuarioCerrarSesion);
     verCursosButton.addEventListener("click", () => {
-     // Limpiar el contenedor
-     document.getElementById("search-container").style.display = "none";
-     document.getElementById("sort-select").style.display = "none";
-     document.getElementById("sort-difficulty").style.display = "none";
-     document.getElementById("create-kata-button").style.display = "none";
-     document.getElementById("create-kata-form").style.display = "none";
-     document.getElementById("catalog-container").style.display = "none";
-     document.getElementById("sort-select").style.display = "none";
-     document.getElementById("sort-difficulty").style.display = "none";
-     document.getElementById("sort-select1").style.display = "none";
-     document.getElementById("sort-difficulty1").style.display = "none";
-     
+        LimpairContenedorKatas();
         document.getElementById("curso-container").style.display = "block";
-         // Cargar y mostrar los cursos
          cargarCursos(CursosData);
-   
         });
    
 };
