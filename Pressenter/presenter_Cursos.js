@@ -20,8 +20,8 @@ export function cargarCursos(DataCurso) {
          });
          ButtoneliminarCursos.addEventListener("click",() => {
             SalirCursoUsuario(DataCurso);
-            buttonAñadirCursos.style.display = "block";
-            ButtoneliminarCursos.style.display = "none";
+            buttonAñadirCursos.style.display = "block";//Mostrar Button
+            ButtoneliminarCursos.style.display = "none";//Esconder boton
          });
 
         cursoContainer.appendChild(cursoData);
