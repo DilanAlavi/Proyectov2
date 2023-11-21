@@ -23,6 +23,11 @@ describe("unirseCursoUsuario", () => {
     expect(agregarCursos).toHaveLength(1);
     expect(agregarCursos[0]).toEqual(ConstructorCurso("JavaScript", "Curso de JavaScript", "Programación"));
   });
-
+  test("Intenta añadir un curso existente", () => {
+    unirseCursoUsuario(agregarCursos, "JavaScript", "Curso de JavaScript", "Programación");
+    const resultado = unirseCursoUsuario(agregarCursos, "JavaScript", "Otra descripción", "Otra categoría");
+    expect(resultado).toBe("Este curso ya ha sido agregado anteriormente.");
+    expect(agregarCursos).toHaveLength(1);
+  });
 
 });
