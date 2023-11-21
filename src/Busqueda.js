@@ -1,5 +1,4 @@
 export function BusquedaGlobal(catalogData, query) {
-    // Convierte la consulta a minúsculas
     const searchQuery = query.toLowerCase();
     const filteredCatalogs = catalogData.filter(catalog => {
         const title = catalog.Title.toLowerCase();
@@ -13,7 +12,5 @@ export function BusquedaGlobal(catalogData, query) {
     if (filteredCatalogs.length === 0) {
         throw new Error("No se encontraron resultados");
     }
-    // Devuelve el resultado de la búsqueda
     return filteredCatalogs;
 }
-

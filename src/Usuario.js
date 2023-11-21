@@ -5,11 +5,7 @@ export function RegistroDeUsuario(userData, newUser) {
         }
         const usuariosFiltrados = FiltrarUsuarios(userData, newUser);
         AgregarUsuario(userData, newUser, usuariosFiltrados);
-        
-        // Buscar al usuario recién registrado para obtener su información
         const usuarioEncontrado = BuscarUsuario(userData, newUser);
-
-        // Almacena la información del usuario en localStorage
         localStorage.setItem('usuarioActual', JSON.stringify(usuarioEncontrado));
 
         alert("Usuario registrado con éxito");
@@ -18,11 +14,6 @@ export function RegistroDeUsuario(userData, newUser) {
         alert(error.message);
     }
 }
- /*export function validarDatos(newUser) {
-    if (!newUser.username || !newUser.password) {
-        throw new Error("Por favor, complete todos los campos.");
-    }
-}*/
 export function FiltrarUsuarios(userData, newUser) {
     const { username } = newUser;
     return userData.filter(usuario => usuario.username === username);
@@ -35,12 +26,11 @@ export function AgregarUsuario(userData, newUser, usuariosFiltrados) {
         userData.push(newUser);
     }
 }
-
 export function IniciarSesion(userData, credentials) {
     try {
         validarCredenciales(credentials);
         const usuarioEncontrado = BuscarUsuario(userData, credentials);
-
+        
         if (usuarioEncontrado) {
             // Almacena la información del usuario en localStorage
             localStorage.setItem('usuarioActual', JSON.stringify(usuarioEncontrado));
@@ -62,7 +52,7 @@ export function BuscarUsuario(userData, credentials) {
     const { username, password } = credentials;
     return userData.find(usuario => usuario.username === username && usuario.password === password);
 }
-export function simulacionDeAlmacenamientoLocal() {
+ export function simulacionDeAlmacenamientoLocal() {
     return {
       setItem: jest.fn(), // jest.fn() crea una función simulada que rastrea las llamadas
     };

@@ -1,6 +1,5 @@
 import { OrdenarCatalogsPorDificultad, OrdenarCatalogs } from '../src/OrdenarKatas.js';
 
-// ordenarCatalogs.test.js
 describe('OrdenarCatalogsPorDificultad', () => {
   it('debería ordenar por dificultad de manera ascendente', () => {
     const catalogData = [

@@ -8,13 +8,13 @@
 </head>
 <body>
     <h1>Lista de Catálogo de Katas</h1>
-      
+    
     <!-- Botones de Crear Cuenta y Registrarse -->
     <div id="nombreUsuario"></div>
     <div>
         <button id="crearCuentaButton">Crear Cuenta</button>
         <button id="registrarseformButton">Registrarse</button>
-        <button id="cursosButton" style="display: none;">Ver Cursos</button>
+        <button id="cursosButton" style="display: none;">Ver Cursos</button></a>
         <button id="cerrarSesionButton" style="display: none;">Cerrar Sesión</button>
     </div>
 
@@ -35,7 +35,7 @@
         <option value="asc">Fácil → Difícil</option>
         <option value="desc">Difícil → Fácil</option>
     </select>
-    
+
     <!-- Botón para crear un nuevo kata -->
     <button id="create-kata-button">Crear Nuevo Kata</button>
 
@@ -54,31 +54,35 @@
         </select>
         <button id="save-kata-button">Guardar Kata</button>
     </div>
+
     <!-- Formulario de Registro e Inicio de Sesión -->
         <!-- Formulario de Registro -->
         <div id="registroForm" style="display: none;">
             <h3>Registro</h3>
             <label for="nombreRegistro">Nombre:</label>
             <input type="text" id="nombreRegistro" name="nombreRegistro" required>
-
+    
             <label for="correoRegistro">Correo electrónico:</label>
             <input type="email" id="correoRegistro" name="correoRegistro" required>
-
+    
             <label for="contrasenaRegistro">Contraseña:</label>
             <input type="password" id="contrasenaRegistro" name="contrasenaRegistro" required>
+    
             <button type="button" id="registrarseButton">Registrarse</button>
         </div>
-     <!-- Formulario de Inicio de Sesión -->
-     <div id="loginForm" style="display: none;">
-        <h3>Iniciar Sesión</h3>
-        <label for="nombreRegistro">Nombre:</label>
-        <input type="text" id="nombreloggin" name="nombreloggin" required>
+    
+        <!-- Formulario de Inicio de Sesión -->
+        <div id="loginForm" style="display: none;">
+            <h3>Iniciar Sesión</h3>
+            <label for="nombreRegistro">Nombre:</label>
+            <input type="text" id="nombreloggin" name="nombreloggin" required>
 
-        <label for="contrasena">Contraseña:</label>
-        <input type="password" id="contrasena" name="contrasena" required>
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" required>
+    
+            <button type="button" id="iniciarSesionButton">Iniciar Sesión</button>
+        </div>
 
-        <button type="button" id="iniciarSesionButton">Iniciar Sesión</button>
-    </div>
 
     <div id="catalog-container">
         <template id="catalog-template">
@@ -93,6 +97,18 @@
                     <button class="delete-button">Eliminar</button>
                 </div>
             </div>
+        </template>
+    </div>
+    <!-- Contenedor para cursos -->
+    <div id="curso-container">
+        <template id="curso-template">
+            <div class="curso-box">
+             <div class="curso-item">
+                 <p class="Title"></p>
+                 <p class="Description"></p>
+                 <p class="Category"></p>
+             </div>
+         </div>
         </template>
     </div>
 
