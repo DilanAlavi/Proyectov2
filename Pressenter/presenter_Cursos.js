@@ -10,6 +10,14 @@ export function cargarCursos(DataCurso) {
         Object.keys(nuevoCurso).forEach(prop => {
             cursoData.querySelector(`.${prop}`).textContent = nuevoCurso[prop];
         });
+
         cursoContainer.appendChild(cursoData);
     });
+}
+
+export function cargarCursoUsuario(title, description, category) {//cambiar nombre de la funcion
+    unirseCursoUsuario(title, description, category);
+   alert("Curso añadido exitosamente.");
+   // Ocultar el botón de añadir y mostrar el botón de eliminar
+
 }
