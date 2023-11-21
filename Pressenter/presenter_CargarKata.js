@@ -5,7 +5,6 @@ const catalogContainer = document.getElementById("catalog-container");
 const catalogTemplate = document.getElementById("catalog-template");
 const createKataButton = document.getElementById("create-kata-button");
 const createKataForm = document.getElementById("create-kata-form");
-const saveKataButton = document.getElementById("save-kata-button");
 
 export function GuardarFormularioKata(){
     if (usuarioPuedeRealizarAccionesKata()) {
@@ -14,6 +13,7 @@ export function GuardarFormularioKata(){
         alert("Debes iniciar sesión o crear una cuenta para realizar esta acción.");
     }
 }
+
 export function mostrarFormularioKata()
 {
     if (usuarioPuedeRealizarAccionesKata()) {
@@ -23,11 +23,13 @@ export function mostrarFormularioKata()
         alert("Debes iniciar sesión o crear una cuenta para realizar esta acción.");
     }
 }
+
 // Función para verificar si el usuario puede realizar acciones de kata
 export function usuarioPuedeRealizarAccionesKata() {
     const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual'));
     return usuarioActual !== null;
 }
+
 function editarKata(catalog){
     const form = createKataForm;
     form.style.display = "block";
@@ -37,10 +39,10 @@ function editarKata(catalog){
         document.getElementById(`kata-${prop.toLowerCase()}`).value = catalog[prop];
     });
 }
+
 function eliminarKata(catalog){
     catalogData.splice(catalogData.indexOf(catalog), 1);
             CargarKata(catalogData);
-
 }
 
 export function CargarKata(catalogs) {
@@ -50,18 +52,19 @@ export function CargarKata(catalogs) {
         ['Title', 'Description', 'Difficulty', 'Category', 'Type'].forEach(prop => {
             catalogClone.querySelector(`.${prop}`).textContent = catalog[prop];
         });
-        const editButton = catalogClone.querySelector('.edit-button');
-        const deleteButton = catalogClone.querySelector('.delete-button');
-        editButton.addEventListener("click", () => editarKata(catalog));
-        deleteButton.addEventListener("click", () => eliminarKata(catalog));
+        const editarKataButton = catalogClone.querySelector('.edit-button');
+        const elminarKataButton = catalogClone.querySelector('.delete-button');
+        editarKataButton.addEventListener("click", () => editarKata(catalog));
+        elminarKataButton.addEventListener("click", () => eliminarKata(catalog));
         catalogContainer.appendChild(catalogClone);
     });
 }
-function ActualizarKata(newKata, editIndex) {
-    if (editIndex !== undefined) {
-        catalogData[editIndex] = newKata;
+
+function ActualizarKata(nuevaKata, indiceEdicion) {
+    if (indiceEdicion !== undefined) {
+        catalogData[indiceEdicion] = nuevaKata;
     } else {
-        catalogData.push(newKata);
+        catalogData.push(nuevaKata);
     }
 }
 
@@ -71,7 +74,7 @@ export function CrearNUevaKata(){
         const difficulty = document.getElementById("kata-difficulty").value;
         const category = document.getElementById("kata-category").value;
         const type = document.getElementById("kata-type").value;
-        const newKata = {
+        const NuevaKata = {
             Title: title,
             Description: description,
             Difficulty: difficulty,
@@ -79,7 +82,7 @@ export function CrearNUevaKata(){
             Type: type
         };
         const editIndex = createKataForm.dataset.editIndex;
-       ActualizarKata(newKata,editIndex);
+        ActualizarKata(NuevaKata,editIndex);
         createKataForm.style.display = "none";
         CargarKata(catalogData);
 }

@@ -1,19 +1,21 @@
 import { CargarKata } from './presenter_CargarKata.js';
 import { OrdenarCatalogsPorDificultad } from "../src/OrdenarKatas";
-import {OrdenarCatalogs} from '../src/OrdenarKatas.js';
+import {OrdenarCatalogsPorTitulo} from '../src/OrdenarKatas.js';
 import catalogData from '../Data/catalogData.js';
 
-const sortDifficultySelect = document.getElementById("sort-difficulty");
-const sortSelect = document.getElementById("sort-select");
+const seleccionarPorDificultad = document.getElementById("sort-difficulty");
+const seleccionarOrden = document.getElementById("sort-select");
+
+
 export function CatalogoOrdenadoPorDificultad() {
-    OrdenarCatalogsPorDificultad(catalogData, sortDifficultySelect.value);
+    OrdenarCatalogsPorDificultad(catalogData, seleccionarPorDificultad.value);
     CargarKata(catalogData);
 }
-export function OrdenarKatas()
+export function CatalogoOrdenadoPorTitulo()
 {
-    const sortValue = sortSelect.value;
-        if (sortValue === "asc" || sortValue === "desc") {
-            OrdenarCatalogs(catalogData, sortValue);
+    const valorDeOrdenamiento = seleccionarOrden.value;
+        if (valorDeOrdenamiento === "asc" || valorDeOrdenamiento === "desc") {
+            OrdenarCatalogsPorTitulo(catalogData, valorDeOrdenamiento);
             CargarKata(catalogData);
         }
 }

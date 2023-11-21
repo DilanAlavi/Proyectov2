@@ -3,21 +3,21 @@ import { CargarKata } from './presenter_CargarKata.js';
 import catalogData from '../Data/catalogData.js';
 
 
-const searchInput = document.getElementById("search-input");
+const campoDeBúsqueda = document.getElementById("search-input");
 
 
 export function BusquedaDeCatalogos() {
-    const searchName = searchInput.value.trim();
-    if (searchName === '') {
+    const nombreDeBúsqueda = campoDeBúsqueda.value.trim();
+    if (nombreDeBúsqueda === '') {
         alert("Ingrese datos para la búsqueda");
         return;
     }
     try {
-        const searchResult = BusquedaGlobal(catalogData, searchName);
-        if (searchResult.length === 0) {
+        const resultadoDeBúsqueda = BusquedaGlobal(catalogData, nombreDeBúsqueda);
+        if (resultadoDeBúsqueda.length === 0) {
             alert("No se encontraron resultados");
         } else {
-            CargarKata(searchResult);
+            CargarKata(resultadoDeBúsqueda);
         }
     } catch (error) {
         alert(error.message);

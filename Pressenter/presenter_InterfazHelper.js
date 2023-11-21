@@ -1,4 +1,6 @@
 const catalogContainer = document.getElementById("catalog-container");
+
+
 export function LimpairContenedorKatas(){
     // Limpiar el contenedor
     document.getElementById("search-container").style.display = "none";
@@ -12,6 +14,7 @@ export function LimpairContenedorKatas(){
     document.getElementById("sort-select1").style.display = "none";
     document.getElementById("sort-difficulty1").style.display = "none";
 }
+
 export function MostrarFomrularioInicioSesion()
 {
     LimpairContenedorKatas();
