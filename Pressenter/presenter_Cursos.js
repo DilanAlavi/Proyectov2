@@ -14,9 +14,10 @@ export function cargarCursos(DataCurso) {
         const ButtoneliminarCursos= cursoData.querySelector('.salir-button');
         buttonAñadirCursos.addEventListener("click",() => {
             cargarCursoUsuario(DataCurso);
-
+            buttonAñadirCursos.style.display = "none";
+            ButtoneliminarCursos.style.display = "block";
          });
-         
+
         cursoContainer.appendChild(cursoData);
     });
 
