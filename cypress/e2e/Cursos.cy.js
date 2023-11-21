@@ -13,7 +13,7 @@ describe('Mostrar catalogo de Cursos', () => {
       cy.contains('Cursos').should('be.visible').click();
       cy.get('.curso-item').should('have.length.greaterThan', 0);
     });
-    
+
     it('debería mostrar un mensaje si se añadio el Curso', () => {
       cy.contains('Cursos').should('be.visible').click();
       cy.get('.curso-item').should('have.length.greaterThan', 0);
@@ -22,5 +22,12 @@ describe('Mostrar catalogo de Cursos', () => {
       expect(message).to.equal('Curso añadido exitosamente.');
     });
     cy.contains('Añadir').should('be.visible').click();
-    });    
+    });   
+    it('debería mostrar los botones añadir, despues salir y viceversa', () => {
+      cy.contains('Cursos').should('be.visible').click();
+      cy.get('.curso-item').should('have.length.greaterThan', 0);
+      cy.get('.anadir-button').should('exist').first().click();
+      cy.get('.salir-button').should('be.visible').first().click();
+      cy.get('.anadir-button').should('be.visible');
+    }); 
   });
