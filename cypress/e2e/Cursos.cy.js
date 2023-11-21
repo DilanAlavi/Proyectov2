@@ -10,8 +10,13 @@ describe('Mostrar catalogo de Cursos', () => {
       cy.wait(1000); 
     });
 
-    it('Verifica que cargue los Datos de las Katas', () => {
+    it('debería mostrar un mensaje si se añadio el Curso', () => {
       cy.contains('Cursos').should('be.visible').click();
       cy.get('.curso-item').should('have.length.greaterThan', 0);
+    // Intercepta la función de alerta y verifica el mensaje
+    cy.on('window:alert', (message) => {
+      expect(message).to.equal('Curso añadido exitosamente.');
     });
+    cy.contains('Añadir').should('be.visible').click();
+    });    
   });
