@@ -1,5 +1,5 @@
-// presenter_Usuario.js
 import { RegistroDeUsuario, IniciarSesion } from '../src/Usuario.js';
+import { ajustarInterfazCerrarSesion,ajustarInterfazUsuarioAutenticado } from './presenter_InterfazHelper.js';
 import userData from '../Data/userData.js';
 const usernameInput = document.getElementById("nombreRegistro"); 
 const passwordInput = document.getElementById("contrasenaRegistro"); 
@@ -9,6 +9,7 @@ const CursosButton = document.getElementById("cursosButton");
 const cerrarSesionButton = document.getElementById("cerrarSesionButton");
 const RegistarButton = document.getElementById("registrarseformButton");
 const CrearCuentaButton= document.getElementById("crearCuentaButton");
+
 export function RegistrarUsuario() {
     const nuevoUsuario = {
         username: usernameInput.value.trim(),
@@ -16,7 +17,7 @@ export function RegistrarUsuario() {
     };
 
     RegistroDeUsuario(userData, nuevoUsuario);
-
+    
 }
 export function IniciarSesionUsuario() {
     const credencialesUsuario = {
@@ -26,29 +27,20 @@ export function IniciarSesionUsuario() {
 
     IniciarSesion(userData, credencialesUsuario);
 }
-
 export function CerrarSesion() {
     localStorage.removeItem('usuarioActual');
     window.location.reload();
 }
-export function UsuarioCerrarSesion(){
+export function CerrarSesionUsuario(){
     CerrarSesion();
-    // Ocultar botón de cerrar sesión y mostrar botones de crear cuenta y registrarse
-    cerrarSesionButton.style.display = 'none';
-    CrearCuentaButton.style.display = 'block';
-    RegistarButton.style.display = 'block';
+    ajustarInterfazCerrarSesion();
     nombreUsuarioElement.textContent = '';
 }
 export function actualizarVistaConUsuarioAutenticado(usuarioActual)
 {
     if (usuarioActual) {
-        // Muestra el nombre del usuario por HTML
         const nombreUsuarioElement = document.getElementById('nombreUsuario');
         nombreUsuarioElement.textContent = `¡Hola, ${usuarioActual.username}!`;
-        // Ocultar botones de crear cuenta y registrarse si el usuario está autenticado
-        CrearCuentaButton.style.display = 'none';
-        RegistarButton.style.display = 'none';
-        cerrarSesionButton.style.display='block';
-        CursosButton.style.display='block';
+        ajustarInterfazUsuarioAutenticado();
     }
 }

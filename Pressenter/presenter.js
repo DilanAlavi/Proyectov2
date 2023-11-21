@@ -3,9 +3,10 @@ import catalogData from '../Data/catalogData.js';
 import CursosData from '../Data/CursosData.js';
 import { BusquedaDeCatalogos } from './presenter_BusquedaGlobal.js';
 import { CatalogoOrdenadoPorDificultad, OrdenarKatas } from './presenter_OrdenarKatas.js';
-import { CargarKata, mostrarFormularioKata,GuardarFormularioKata, LimpairContenedorKatas } from './presenter_CargarKata.js';
-import { RegistrarUsuario, IniciarSesionUsuario, UsuarioCerrarSesion,actualizarVistaConUsuarioAutenticado} from './presenter_Usuario.js';
+import { CargarKata, mostrarFormularioKata,GuardarFormularioKata} from './presenter_CargarKata.js';
+import { RegistrarUsuario, IniciarSesionUsuario, CerrarSesionUsuario,actualizarVistaConUsuarioAutenticado} from './presenter_Usuario.js';
 import { cargarCursos } from './presenter_Cursos.js';
+import { LimpairContenedorKatas,MostrarFomrularioInicioSesion,MostrarFormularioResgistro } from './presenter_InterfazHelper.js';
 
 const catalogListInstance = new CatalogList(catalogData);
 const catalogContainer = document.getElementById("catalog-container");
@@ -37,22 +38,11 @@ window.onload = () => {
     createKataButton.addEventListener("click", mostrarFormularioKata);
     saveKataButton.addEventListener("click",GuardarFormularioKata);
     actualizarVistaConUsuarioAutenticado(usuarioActual);
-
-    // Mostrar el formulario de registro al hacer clic en el botón correspondiente
-    CrearCuentaButton.addEventListener("click", () => {
-        catalogContainer.innerHTML = '';
-        registroForm.style.display = 'block';
-        loginForm.style.display = 'none'; // Oculta el formulario de inicio de sesión
-    });
-    // Mostrar el formulario de inicio de sesión al hacer clic en el botón correspondiente
-    RegistarButton.addEventListener("click", () => {
-        catalogContainer.innerHTML = '';
-        registroForm.style.display = 'none'; // Oculta el formulario de registro
-        loginForm.style.display = 'block';
-   });
+    CrearCuentaButton.addEventListener("click", MostrarFomrularioInicioSesion);
+    RegistarButton.addEventListener("click", MostrarFormularioResgistro);
     registrarseButton.addEventListener("click",RegistrarUsuario)
-   iniciarSesionButton.addEventListener("click",  IniciarSesionUsuario)
-    cerrarSesionButton.addEventListener("click",UsuarioCerrarSesion);
+    iniciarSesionButton.addEventListener("click",  IniciarSesionUsuario)
+    cerrarSesionButton.addEventListener("click",CerrarSesionUsuario);
     verCursosButton.addEventListener("click", () => {
         LimpairContenedorKatas();
         document.getElementById("curso-container").style.display = "block";
