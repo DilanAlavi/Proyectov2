@@ -54,7 +54,18 @@ window.onload = () => {
    iniciarSesionButton.addEventListener("click",  IniciarSesionUsuario)
     cerrarSesionButton.addEventListener("click",UsuarioCerrarSesion);
     verCursosButton.addEventListener("click", () => {
-
+     // Limpiar el contenedor
+     document.getElementById("search-container").style.display = "none";
+     document.getElementById("sort-select").style.display = "none";
+     document.getElementById("sort-difficulty").style.display = "none";
+     document.getElementById("create-kata-button").style.display = "none";
+     document.getElementById("create-kata-form").style.display = "none";
+     document.getElementById("catalog-container").style.display = "none";
+     document.getElementById("sort-select").style.display = "none";
+     document.getElementById("sort-difficulty").style.display = "none";
+     document.getElementById("sort-select1").style.display = "none";
+     document.getElementById("sort-difficulty1").style.display = "none";
+     
         document.getElementById("curso-container").style.display = "block";
          // Cargar y mostrar los cursos
          cargarCursos(CursosData);
