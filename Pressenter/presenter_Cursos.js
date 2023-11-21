@@ -1,4 +1,4 @@
-import { ConstructorCurso } from "../src/Cursos";
+import { ConstructorCurso,unirseCursoUsuario} from "../src/Cursos";
 const cursoContainer = document.getElementById("curso-container");
 const cursoTemplate=document.getElementById("curso-template");
 
@@ -14,18 +14,18 @@ export function cargarCursos(DataCurso) {
         const ButtoneliminarCursos= cursoData.querySelector('.salir-button');
         buttonAñadirCursos.addEventListener("click",() => {
             cargarCursoUsuario(DataCurso);
+            // Ocultar el botón de añadir y mostrar el botón de eliminar
             buttonAñadirCursos.style.display = "none";
             ButtoneliminarCursos.style.display = "block";
          });
 
         cursoContainer.appendChild(cursoData);
     });
-
 }
 
 export function cargarCursoUsuario(title, description, category) {//cambiar nombre de la funcion
     unirseCursoUsuario(title, description, category);
    alert("Curso añadido exitosamente.");
-   // Ocultar el botón de añadir y mostrar el botón de eliminar
+  
 
 }
