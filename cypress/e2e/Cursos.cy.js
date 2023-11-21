@@ -9,25 +9,30 @@ describe('Mostrar catalogo de Cursos', () => {
       cy.get('#registrarseButton').click();
       cy.wait(1000); 
     });
-    it('Verifica que cargue los Datos de las Katas', () => {
+    
+    it('debería mostrar los datos del curso', () => {
       cy.contains('Cursos').should('be.visible').click();
       cy.get('.curso-item').should('have.length.greaterThan', 0);
     });
 
-    it('debería mostrar un mensaje si se añadio el Curso', () => {
+    it('debería mostrar un mensaje al agregar un curso', () => {
       cy.contains('Cursos').should('be.visible').click();
       cy.get('.curso-item').should('have.length.greaterThan', 0);
+
     // Intercepta la función de alerta y verifica el mensaje
     cy.on('window:alert', (message) => {
       expect(message).to.equal('Curso añadido exitosamente.');
     });
-    cy.contains('Añadir').should('be.visible').click();
-    });   
-    it('debería mostrar los botones añadir, despues salir y viceversa', () => {
+
+      cy.contains('Añadir Curso').should('be.visible').click();
+    });
+
+    it('debería alternar los botones de añadir y salir', () => {
       cy.contains('Cursos').should('be.visible').click();
       cy.get('.curso-item').should('have.length.greaterThan', 0);
-      cy.get('.anadir-button').should('exist').first().click();
-      cy.get('.salir-button').should('be.visible').first().click();
+ 
+      cy.get('.anadir-button').first().click();
+      cy.get('.salir-button').first().should('be.visible').click();
       cy.get('.anadir-button').should('be.visible');
     }); 
   });
