@@ -1,7 +1,7 @@
 /* Estilo para el cuerpo de la página */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    background-image: url('/media/background.jpg');
     margin: 0;
     padding: 0;
     text-align: center;
@@ -17,7 +17,7 @@ h1 {
 
 /* Estilo para el contenedor de búsqueda y filtros */
 #search-container {
-    background-color: #fff;
+ 
     padding: 20px;
     margin: 20px 0;
     border-radius: 5px;
@@ -36,7 +36,7 @@ h1 {
 /* Estilo para el botón de búsqueda */
 #search-button,#create-kata-button {
     padding: 10px 20px;
-    background-color: #333;
+    background-color: #00304E;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -52,6 +52,7 @@ label {
     font-weight: bold;
     margin-right: 10px;
     font-size: 14px;
+    color: #f9f9f9;
 }
 
 /* Estilo para los select de ordenamiento */
@@ -91,7 +92,7 @@ select {
 
 /* Aplica el cambio de color al pasar el mouse sobre el catálogo */
 .catalog-item:hover {
-    background-color: #e5e5e5; /* Cambia el color al pasar el mouse */
+    background-color: #cadffb; /* Cambia el color al pasar el mouse */
     transform: translateY(-5px);
 }
 
@@ -183,7 +184,14 @@ select {
     padding: 10px 20px;
     cursor: pointer;
 }
-
+#crearCuentaButton, #registrarseformButton {
+    background-color: #b34f54;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
 #save-kata-button:hover {
     background-color: #555;
 }
