@@ -195,3 +195,56 @@ select {
 #save-kata-button:hover {
     background-color: #555;
 }
+/* Estilo para el formulario de inicio de sesión */
+#loginForm {
+    display: none;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #eeeeee;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el encabezado del formulario */
+#loginForm h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilo para las etiquetas del formulario */
+#loginForm label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Estilo para los campos de entrada del formulario */
+#nombreloggin, #contrasena {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Estilo para el botón de inicio de sesión */
+#iniciarSesionButton {
+    background-color: #00304E;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#iniciarSesionButton:hover {
+    background-color: #45a049;
+}
