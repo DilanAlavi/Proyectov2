@@ -196,7 +196,7 @@ select {
     background-color: #555;
 }
 /* Estilo para el formulario de inicio de sesión */
-#loginForm {
+#loginForm, #registroForm {
     display: none;
     max-width: 400px;
     margin: 20px auto;
@@ -208,14 +208,14 @@ select {
 }
 
 /* Estilo para el encabezado del formulario */
-#loginForm h3 {
+#loginForm, #registroForm h3 {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
 }
 
 /* Estilo para las etiquetas del formulario */
-#loginForm label {
+#loginForm label, #registroForm label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
@@ -223,7 +223,7 @@ select {
 }
 
 /* Estilo para los campos de entrada del formulario */
-#nombreloggin, #contrasena {
+#nombreloggin, #contrasena, #nombreRegistro, #correoRegistro, #contrasenaRegistro {
     display: block;
     width: 100%;
     padding: 12px;
@@ -235,7 +235,7 @@ select {
 }
 
 /* Estilo para el botón de inicio de sesión */
-#iniciarSesionButton {
+#iniciarSesionButton, #registrarseButton {
     background-color: #00304E;
     color: #fff;
     border: none;
@@ -245,6 +245,6 @@ select {
     transition: background-color 0.3s;
 }
 
-#iniciarSesionButton:hover {
+#iniciarSesionButton:hover, #registrarseButton:hover {
     background-color: #45a049;
 }
